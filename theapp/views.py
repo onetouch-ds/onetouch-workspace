@@ -46,3 +46,23 @@ def other(requests):
 # 투표 페이지
 def participate(requests):
     return render(requests, 'participating-vote.html')
+
+# 마이 페이지
+def mypage(requests):
+    return render(requests, 'mypage.html')
+
+# 공지사항
+def notice(requests):
+    return render(requests, 'notice.html')
+
+# 투표에 관한 건의사항
+def suggest_vote(requests):
+    return render(requests, 'suggest_vote.html')
+
+# 기타 건의사항
+def suggest_other(requests):
+    return render(requests, 'suggest_other.html')
+
+# 메인 페이지
+def main(requests):
+    return render(requests, 'main.html')

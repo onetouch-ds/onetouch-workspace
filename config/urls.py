@@ -34,4 +34,9 @@ urlpatterns = [
     path('utilities-color/', views.color, name='color'),
     path('utilities-other/', views.other, name='other'),
     path('participating-vote/', views.participate, name='participate'),
+    path('mypage/',views.mypage, name='mypage'),
+    path('notice/',views.notice, name='notice'),
+    path('suggest-vote/',views.suggest_vote, name='suggest-vote'),
+    path('suggest-other/',views.suggest_other, name='suggest-other'),
+    path('main/',views.main, name='main'),
 ]
