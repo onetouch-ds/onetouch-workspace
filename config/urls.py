@@ -19,14 +19,14 @@ from theapp import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', views.index, name='index'),
+    path('index', views.index, name='index'),
     path('404/', views.error, name='error'),
     path('blank/', views.blank, name='blank'),
     path('buttons/', views.buttons, name='buttons'),
     path('cards/', views.cards, name='cards'),
     path('charts/', views.charts, name='charts'),
     path('forgot-password/', views.password, name='password'),
-    path('login/', views.login, name='login'),
+    path('', views.login, name='login'),
     path('register/', views.register, name='register'),
     path('tables/', views.tables, name='tables'),
     path('utilities-animation/', views.animation, name='animation'),
