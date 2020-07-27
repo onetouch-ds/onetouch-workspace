@@ -42,3 +42,18 @@ def color(requests):
 
 def other(requests):
     return render(requests, 'utilities-other.html')
+
+def mypage(requests):
+    return render(requests, 'mypage.html')
+
+def notice(requests):
+    return render(requests, 'notice.html')
+
+def suggest_vote(requests):
+    return render(requests, 'suggest_vote.html')
+
+def suggest_other(requests):
+    return render(requests, 'suggest_other.html')
+
+def main(requests):
+    return render(requests, 'main.html')
