@@ -42,3 +42,7 @@ def color(requests):
 
 def other(requests):
     return render(requests, 'utilities-other.html')
+
+# 투표 페이지
+def participate(requests):
+    return render(requests, 'participating-vote.html')

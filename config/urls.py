@@ -33,4 +33,5 @@ urlpatterns = [
     path('utilities-border/', views.border, name='border'),
     path('utilities-color/', views.color, name='color'),
     path('utilities-other/', views.other, name='other'),
+    path('participating-vote/', views.participate, name='participate'),
 ]
