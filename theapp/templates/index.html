@@ -132,6 +132,45 @@
       <!-- Divider -->
       <hr class="sidebar-divider d-none d-md-block">
 
+      <!-- 강태영7/27 : 마이 페이지 -->
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'charts'%}">
+          <i class="fas fa-fw fa-chart-area"></i>
+          <span>마이 페이지</span></a>
+      </li>
+
+      <!-- 강태영7/27 : Divider -->
+      <hr class="sidebar-divider d-none d-md-block">
+
+      <!-- 강태영7/27 : 투표 -->
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="true" aria-controls="collapsePages">
+          <i class="fas fa-fw fa-folder"></i>
+          <span>투표</span>
+        </a>
+        <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+          <div class="bg-white py-2 collapse-inner rounded">
+            <a class="collapse-item" href="{% url 'login'%}">학교</a>
+            <a class="collapse-item" href="{% url 'register'%}">단과대/학부</a>
+            <a class="collapse-item" href="{% url 'password'%}">학과</a>
+            <a class="collapse-item" href="{% url 'password'%}">투표 만들기</a>
+          </div>
+        </div>
+      </li>
+
+      <!-- 강태영7/27 : Divider -->
+      <hr class="sidebar-divider d-none d-md-block">
+
+      <!-- 강태영7/27 : 건의 -->
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'charts'%}">
+          <i class="fas fa-fw fa-chart-area"></i>
+          <span>건의</span></a>
+      </li>
+
+      <!-- 강태영7/27 : Divider -->
+      <hr class="sidebar-divider d-none d-md-block">
+
       <!-- Sidebar Toggler (Sidebar) -->
       <div class="text-center d-none d-md-inline">
         <button class="rounded-circle border-0" id="sidebarToggle"></button>
@@ -139,7 +178,7 @@
 
     </ul>
     <!-- End of Sidebar -->
-
+    
     <!-- Content Wrapper -->
     <div id="content-wrapper" class="d-flex flex-column">
 
