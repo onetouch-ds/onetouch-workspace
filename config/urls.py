@@ -39,4 +39,5 @@ urlpatterns = [
     path('suggest-vote/',views.suggest_vote, name='suggest-vote'),
     path('suggest-other/',views.suggest_other, name='suggest-other'),
     path('main/',views.main, name='main'),
+    path('result/',views.result, name='vote-result'),
 ]
