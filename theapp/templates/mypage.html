@@ -7,24 +7,43 @@
         <div class="container-fluid">
             <!--학생 정보 -->
             <br><br>
-            <div class="mypage-info">
-                <h1 class="h3 mb-2 text-gray-800">마이페이지</h1>
-                <br>
-                    <div class="mypage-info-img" style="float:left; margin-right:30px">
-                        <img src="https://image.dongascience.com/Photo/2020/03/5bddba7b6574b95d37b6079c199d7101.jpg" alt="학생증명사진" width="150" height="180">
-                    </div>
-                    <div class="mypage-info-text" style="float:left">
-                        <h1 class="h5 text-gray-800">학생정보</h1>
-                        <br>
-                        <p class="h6 text-gray-800">단과대 / 학부 : 공과대학</p>
-                        <p class="h6 text-gray-800">학과 : 컴퓨터공학과</p>
-                        <p class="h6 text-gray-800">학번 : 2018xxxx</p>
-                        <p class="h6 text-gray-800">이름 : 홍길동</p>
-                    </div>
+            
+            <!-- 학생 정보 끝 --> 
+            
+            <div class="row">
+            
+            <div class="col-xl-8 col-lg-7">
+
+              <!-- Area Chart -->
+              <div class="card shadow mb-4">
+                <div class="card-header py-3">
+                  <h6 class="m-0 font-weight-bold text-primary">Area Chart</h6>
+                </div>
+                <div class="card-body">
+                  <div class="chart-area">
+                    <canvas id="myAreaChart"></canvas>
+                  </div>
+                  <hr>
+                  Styling for the area chart can be found in the <code>/js/demo/chart-area-demo.js</code> file.
+                </div>
+              </div>
+
+              <!-- Bar Chart -->
+              <div class="card shadow mb-4">
+                <div class="card-header py-3">
+                  <h6 class="m-0 font-weight-bold text-primary">Bar Chart</h6>
+                </div>
+                <div class="card-body">
+                  <div class="chart-bar">
+                    <canvas id="myBarChart"></canvas>
+                  </div>
+                  <hr>
+                  Styling for the bar chart can be found in the <code>/js/demo/chart-bar-demo.js</code> file.
+                </div>
+              </div>
+
             </div>
-            <!-- 학생 정보 끝 -->  
-
-
+             
         </div>
     </div>
 </div>
