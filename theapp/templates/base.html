@@ -10,8 +10,10 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>participating-vote</title>
+  <title>base.html</title>
 
+  {% block head %}
+  {% endblock head %}
 
   <!-- Custom fonts for this template-->
   <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -90,10 +92,10 @@
         </a>
         <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
-            <a class="collapse-item" href="{% url 'participate'%}">학교</a>   <!-- 링크 연결 페이지 바꾸기-->
-            <a class="collapse-item" href="#">단과대/학부</a>
-            <a class="collapse-item" href="#">학과</a>
-            <a class="collapse-item" href="#">투표 만들기</a>
+            <a class="collapse-item" href="{% url 'school-vote'%}">학교</a>   <!-- 링크 연결 페이지 바꾸기-->
+            <a class="collapse-item" href="{% url 'college-vote'%}">학부 / 단과대</a>
+            <a class="collapse-item" href="{% url 'department-vote'%}">학과</a>
+            <a class="collapse-item" href="{% url 'make-vote'%}">투표 만들기</a>
           </div>
         </div>
       </li>

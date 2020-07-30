@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+<div class="container-fluid">
+         <br><br><br>
+          <!-- Page Heading -->
+          <div class="d-sm-flex align-items-center justify-content-between mb-4">
+            <h1 class="h3 mb-0 text-gray-800">공약보기</h1>
+          </div>
+      <div class="row">
+        <div class="col-12">
+        <div class="card" >
+            <img src="..." class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">학생회 이름</h5>
+                <p class="card-text">공약</p>
+                <p>1.</p>
+                <p>2.</p>
+                <p>3.</p>
+                <center> 
+                <!-- Button trigger modal -->
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+            투표하기
+            </button>
+            </center>
+            </div>
+        </div>
+        </div>
+    </div>
+</div>
+
+        <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalTitle" aria-hidden="true">
+      <div class="modal-dialog modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalTitle">Are you sure?</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            기호 1번에게 투표하겠습니까?
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+            <a href="{%url 'school-vote'%}"><button type="button" class="btn btn-primary">Ok</button></a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+{% endblock content %}

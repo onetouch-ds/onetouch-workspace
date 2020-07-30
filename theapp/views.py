@@ -43,10 +43,6 @@ def color(requests):
 def other(requests):
     return render(requests, 'utilities-other.html')
 
-# 투표 페이지
-def participate(requests):
-    return render(requests, 'participating-vote.html')
-
 # 마이 페이지
 def mypage(requests):
     return render(requests, 'mypage.html')
@@ -66,3 +62,47 @@ def suggest_other(requests):
 # 메인 페이지
 def main(requests):
     return render(requests, 'main.html')
+
+# 참여 가능한 투표 페이지
+def participate(requests):
+    return render(requests, 'participating-vote.html')
+
+# 학교 투표 페이지
+def school_vote(requests):
+    return render(requests,'school_vote.html')
+
+# 단과대/학부 투표 페이지
+def college_vote(requests):
+    return render(requests, 'college_vote.html')
+
+# 학과 투표 페이지
+def department_vote(requests):
+    return render(requests, 'department_vote.html')
+
+# 투표 만들기 페이지
+def make_vote(requests):
+    return render(requests, 'make_vote.html')
+
+# 학교-투표하기 페이지
+def school_voting(requests):
+    return render(requests, 'school-voting.html')
+
+# 학교-공약 페이지
+def school_pledge(requests):
+    return render(requests, 'school-pledge.html')
+
+# 학부-투표하기 페이지
+def college_voting(requests):
+    return render(requests, 'college-voting.html')
+
+# 학부-공약 페이지
+def college_pledge(requests):
+    return render(requests, 'college-pledge.html')
+
+# 학과-투표하기 페이지
+def department_voting(requests):
+    return render(requests, 'department-voting.html')
+
+# 학과-공약 페이지
+def department_pledge(requests):
+    return render(requests, 'department-pledge.html')
