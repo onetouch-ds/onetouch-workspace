@@ -26,7 +26,7 @@ urlpatterns = [
     path('cards/', views.cards, name='cards'),
     path('charts/', views.charts, name='charts'),
     path('forgot-password/', views.password, name='password'),
-    path('', views.login, name='login'),
+    path('login/', views.login, name='login'),
     path('register/', views.register, name='register'),
     path('tables/', views.tables, name='tables'),
     path('utilities-animation/', views.animation, name='animation'),
@@ -51,4 +51,5 @@ urlpatterns = [
     path('department-voting/', views.department_voting, name='department-voting'),
     path('department-pledge/', views.department_pledge, name='department-pledge'),
     path('result/',views.result, name='vote-result'),
+    path('', views.login_new, name='login-new'),
 ]

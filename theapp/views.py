@@ -115,3 +115,7 @@ def department_pledge(requests):
 def result(requests):
     return render(requests, 'vote_result.html')
 
+# 새로 만든 로그인 페이지
+def login_new(requests):
+    return render(requests, 'login_new.html')
+
