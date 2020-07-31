@@ -66,3 +66,7 @@ def suggest_other(requests):
 # 메인 페이지
 def main(requests):
     return render(requests, 'main.html')
+
+# 투표 결과 페이지
+def result(requests):
+    return render(requests, 'vote_result.html')
