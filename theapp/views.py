@@ -63,10 +63,13 @@ def suggest_other(requests):
 def main(requests):
     return render(requests, 'main.html')
 
-<<<<<<< HEAD
 # 참여 가능한 투표 페이지
 def participate(requests):
     return render(requests, 'participating-vote.html')
+
+# 참여 완료한 투표 페이지
+def completion_participate(requests):
+    return render(requests, 'completion-participating.html')
 
 # 학교 투표 페이지
 def school_vote(requests):
@@ -107,8 +110,8 @@ def department_voting(requests):
 # 학과-공약 페이지
 def department_pledge(requests):
     return render(requests, 'department-pledge.html')
-=======
+
 # 투표 결과 페이지
 def result(requests):
     return render(requests, 'vote_result.html')
->>>>>>> da12c37ff82f702df993ed2b50dc1d396174caa5
+

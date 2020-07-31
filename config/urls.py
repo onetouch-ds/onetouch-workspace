@@ -34,12 +34,12 @@ urlpatterns = [
     path('utilities-color/', views.color, name='color'),
     path('utilities-other/', views.other, name='other'),
     path('participating-vote/', views.participate, name='participate'),
+    path('completion-participating-vote/', views.completion_participate, name='completion-participate'),
     path('mypage/',views.mypage, name='mypage'),
     path('notice/',views.notice, name='notice'),
     path('suggest-vote/',views.suggest_vote, name='suggest-vote'),
     path('suggest-other/',views.suggest_other, name='suggest-other'),
     path('main/',views.main, name='main'),
-<<<<<<< HEAD
     path('school-vote/', views.school_vote, name='school-vote'),
     path('college-vote/', views.college_vote, name='college-vote'),
     path('department-vote/', views.department_vote, name='department-vote'),
@@ -50,7 +50,5 @@ urlpatterns = [
     path('college-pledge/', views.college_pledge, name='college-pledge'),
     path('department-voting/', views.department_voting, name='department-voting'),
     path('department-pledge/', views.department_pledge, name='department-pledge'),
-=======
     path('result/',views.result, name='vote-result'),
->>>>>>> da12c37ff82f702df993ed2b50dc1d396174caa5
 ]
