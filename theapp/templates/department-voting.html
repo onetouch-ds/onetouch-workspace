@@ -16,35 +16,35 @@
           <div class="row">
             <div class="col-12">
               <div class="list-group">
-                <h4 class="large font-weight-bold">1. 기호 1번
+               <h4 class="large font-weight-bold" ><div  id="candidatenum" value="no1" >기호 1번</div>
                       <a href="{% url 'department-pledge'%}" class="float-right"> <!-- 공약 보기 링크 연결 -->
                         <span class="text" style="color:silver; font-weight:bold">공약보기</span>
                       </a> <br>
-                      <a data-toggle="modal" data-target="#exampleModal" class="float-right"><span class="text-primary">투표하기</span> </a> <!-- 투표 화면 링크 추가-->
+                      <a data-toggle="modal" data-target="#exampleModal" class="float-right" value="no1"><span class="text-primary">투표하기</span> </a> <!-- 투표 화면 링크 추가-->
                       </h4>
                       <hr>
-                <h4 class="large font-weight-bold">2. 기호 2번
+                <h4 class="large font-weight-bold" ><div  id="candidatenum" value="no2" >기호 2번<div  id="candidatenum" >
+                    <a href="{% url 'department-pledge'%}" class="float-right"> <!-- 공약 보기 링크 연결 -->
+                        <span class="text" style="color:silver; font-weight:bold">공약보기</span>
+                      </a> <br>
+                      <a data-toggle="modal" data-target="#exampleModal" class="float-right" value="no2"><span class="text-primary">투표하기</span> </a> <!-- 투표 화면 링크 추가-->
+                      </h4>
+                      <hr>
+                <h4 class="large font-weight-bold" id="candidatenum">기호 3번
                     <a href="{% url 'department-pledge'%}" class="float-right"> <!-- 공약 보기 링크 연결 -->
                         <span class="text" style="color:silver; font-weight:bold">공약보기</span>
                       </a> <br>
                       <a data-toggle="modal" data-target="#exampleModal" class="float-right"><span class="text-primary">투표하기</span> </a> <!-- 투표 화면 링크 추가-->
                       </h4>
                       <hr>
-                <h4 class="large font-weight-bold">3. 기호 3번
+                <h4 class="large font-weight-bold" id="candidatenum">기호 4번
                     <a href="{% url 'department-pledge'%}" class="float-right"> <!-- 공약 보기 링크 연결 -->
                         <span class="text" style="color:silver; font-weight:bold">공약보기</span>
                       </a> <br>
                       <a data-toggle="modal" data-target="#exampleModal" class="float-right"><span class="text-primary">투표하기</span> </a> <!-- 투표 화면 링크 추가-->
                       </h4>
                       <hr>
-                <h4 class="large font-weight-bold">4. 기호 4번
-                    <a href="{% url 'department-pledge'%}" class="float-right"> <!-- 공약 보기 링크 연결 -->
-                        <span class="text" style="color:silver; font-weight:bold">공약보기</span>
-                      </a> <br>
-                      <a data-toggle="modal" data-target="#exampleModal" class="float-right"><span class="text-primary">투표하기</span> </a> <!-- 투표 화면 링크 추가-->
-                      </h4>
-                      <hr>
-                <h4 class="large font-weight-bold">기권
+                <h4 class="large font-weight-bold" id="candidatenum">기권
                       <a data-toggle="modal" data-target="#exampleModal" class="float-right"><span class="text-primary">투표하기</span> </a> <!-- 투표 화면 링크 추가-->
                       </h4>
                       <hr>
@@ -78,7 +78,14 @@
             </button>
           </div>
           <div class="modal-body">
-            기호 1번에게 투표하겠습니까?
+         <h4>
+          <script>
+            var can = document.getElementById("candidatenum").innerHTML;
+            document.write(can);
+  
+          </script>
+          </h4>
+            에 투표하겠습니까?
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">취소</button>
