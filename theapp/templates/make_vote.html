@@ -37,12 +37,23 @@
                 <label for="exampleFormControlTextarea1">투표 설명</label>
                 <textarea class="form-control" id="exampleFormControlTextarea1" rows="5"></textarea>
             </div>
+
+            <!--후보 추가-->>
+            <script  language="javascript">
+            function addform(){
+              const str = '<input type="text" class="form-control" id="exampleFormControlInput1">'
+              $("#addnewform").append(str);
+            }
+            </script>
+            
             <div style="float:right">
-                      <img src="{% static 'img/plus2.svg'%}" alt="플러스 기호" width="20" height="20">
+                      <img onClick="addform()"  src="{% static 'img/plus2.svg'%}" alt="플러스 기호" width="20" height="20">
                     </div>
-           <div class="form-group">
+           <div class="form-group" >
                 <label for="exampleFormControlInput1">투표 후보</label>
                 <input type="text" class="form-control" id="exampleFormControlInput1">
+                 <div id="addnewform">
+                </div>
             </div>
             <div class="form-group">
                 <label for="exampleFormControlTextarea1">후보 설명</label>
