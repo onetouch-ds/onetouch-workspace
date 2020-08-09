@@ -38,26 +38,38 @@
                 <textarea class="form-control" id="exampleFormControlTextarea1" rows="5"></textarea>
             </div>
 
-            <!--후보 추가-->>
+            <!--후보 추가-->
             <script  language="javascript">
-            function addform(){
-              const str = '<input type="text" class="form-control" id="exampleFormControlInput1">'
-              $("#addnewform").append(str);
+            function addform(){             
+
+              const str = '<div class="form-group">'+'<label for="exampleFormControlInput1">투표 후보</label>'+
+                '<input type="text" class="form-control" id="exampleFormControlInput1">'+
+                 '<div id="addnewform">'+
+                '</div>'+
+            '</div>'+
+            '<div class="form-group">'+
+                '<label for="exampleFormControlTextarea1">후보 설명</label>'+
+                '<textarea class="form-control" id="exampleFormControlTextarea1" rows="5">'+'</textarea>'+
+            '</div>'
+             $("#addnewform").append(str);
+              
             }
             </script>
+
             
-            <div style="float:right">
+          <div style="float:right">
                       <img onClick="addform()"  src="{% static 'img/plus2.svg'%}" alt="플러스 기호" width="20" height="20">
                     </div>
-           <div class="form-group" >
+          
+           <div class="form-group">
                 <label for="exampleFormControlInput1">투표 후보</label>
                 <input type="text" class="form-control" id="exampleFormControlInput1">
-                 <div id="addnewform">
-                </div>
             </div>
             <div class="form-group">
                 <label for="exampleFormControlTextarea1">후보 설명</label>
                 <textarea class="form-control" id="exampleFormControlTextarea1" rows="5"></textarea>
+            </div>
+            <div id="addnewform">
             </div>
             <button type="button" class="btn btn-primary float-right">제출하기</button>
             </form>

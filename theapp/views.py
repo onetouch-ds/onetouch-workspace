@@ -83,6 +83,18 @@ def participate_dept(requests):
 def completion_participate(requests):
     return render(requests, 'completion-participating.html')
 
+# 참여 완료한 투표 페이지-학교
+def completion_participate_school(requests):
+    return render(requests, 'completion-participating_school.html')
+
+# 참여 완료한 투표 페이지-학부
+def completion_participate_college(requests):
+    return render(requests, 'completion-participating_college.html')
+
+# 참여 완료한 투표 페이지-학과
+def completion_participate_dept(requests):
+    return render(requests, 'completion-participating_dept.html')
+
 # 학교 투표 페이지
 def school_vote(requests):
     return render(requests,'school_vote.html')

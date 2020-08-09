@@ -28,11 +28,12 @@
                     <ul class="navbar-nav ml-auto"> 
                       <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                          선택
+                          소속 선택
                         </a>
                         <div class="row">
 
                         <div class="dropdown-menu dropdown-menu-right animated--fade-in" style="width:300px;" aria-labelledby="navbarDropdown">
+                          <a class="dropdown-item text-lg" id="drop" value="1" href="{%url 'participate'%}">전체</a>
                           <a class="dropdown-item text-lg" id="drop" value="1" href="{%url 'participate_school'%}">학교</a>
                           <a class="dropdown-item text-lg" id="drop" value="2" href="{%url 'participate_college'%}">단과대/학부</a>
                           <a class="dropdown-item text-lg" id="drop" value="3" href="{%url 'participate_dept'%}">학과</a>

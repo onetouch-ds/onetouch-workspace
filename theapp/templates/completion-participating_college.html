@@ -14,7 +14,7 @@
          <br><br><br>
           <!-- Page Heading -->
           <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">참여 가능한 투표</h1>
+            <h1 class="h3 mb-0 text-gray-800">참여 완료한 투표</h1>
           </div>
 
           <!-- Content Row -->
@@ -23,8 +23,7 @@
 
             <!-- 소속 드롭 다운 버튼-->
           <nav class="navbar navbar-expand navbar-light bg-gray-200 mb-4">
-
-                <a class="navbar-brand" href="#">학교</a>
+                <a class="navbar-brand" href="#">단과대/학부</a>
                     <ul class="navbar-nav ml-auto"> 
                       <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -33,10 +32,10 @@
                         <div class="row">
 
                         <div class="dropdown-menu dropdown-menu-right animated--fade-in" style="width:300px;" aria-labelledby="navbarDropdown">
-                          <a class="dropdown-item text-lg" id="drop" value="1" href="{%url 'participate'%}">전체</a>
-                          <a class="dropdown-item text-lg" id="drop" value="1" href="{%url 'participate_school'%}">학교</a>
-                          <a class="dropdown-item text-lg" id="drop" value="2" href="{%url 'participate_college'%}">단과대/학부</a>
-                          <a class="dropdown-item text-lg" id="drop" value="3" href="{%url 'participate_dept'%}">학과</a>
+                          <a class="dropdown-item text-lg" href="{%url 'completion-participate'%}">전체</a>                          
+                          <a class="dropdown-item text-lg" href="{%url 'completion-participate_school'%}">학교</a>
+                          <a class="dropdown-item text-lg" href="{%url 'completion-participate_college'%}">단과대/학부</a>
+                          <a class="dropdown-item text-lg" href="{%url 'completion-participate_dept'%}">학과</a>
                       
                         </div>
                         </div>
@@ -53,7 +52,7 @@
 
           <div class="card-body">
                   <h4 class="large font-weight-bold">21대 학생회 투표
-                  <a data-toggle="modal" data-target="#exampleModalScrollable" class="float-right"><span class="text-primary">투표하기</span> </a> <!-- 투표 화면 링크 추가-->
+                  <a data-toggle="modal" data-target="#exampleModal" class="float-right"><span class="text" style="color:silver; font-weight:bold">투표완료</span></a> 
                   </h4>
                   <h5 class="large font-weight-bold">D-1</h5>
                   <div class="progress mb-4">
@@ -65,7 +64,7 @@
             <div class="card-body2">
                   <h4 class="large font-weight-bold">총장 투표
                            <!-- Button trigger modal -->
-                  <a data-toggle="modal" data-target="#exampleModalScrollable" class="float-right"><span class="text-primary">투표하기</span> </a> <!-- 투표 화면 링크 추가-->
+                  <a data-toggle="modal" data-target="#exampleModal" class="float-right"><span class="text" style="color:silver; font-weight:bold">투표완료</span> </a> 
                   </h4>
                   <h5 class="large font-weight-bold">D-10</h5>
                   <div class="progress mb-4">
@@ -99,8 +98,7 @@
       </div>
       </div>
       </div>
-
-       <!-- Footer -->
+        <!-- Footer -->
       <footer class="sticky-footer bg-white">
         <div class="container my-auto">
           <div class="copyright text-center my-auto">
@@ -110,31 +108,29 @@
       </footer>
       <!-- End of Footer -->
     </div>
+    
 
 
 
         <!-- Modal -->
-        <div class="modal fade" id="exampleModalScrollable" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
-          <div class="modal-dialog modal-dialog-scrollable" role="document">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalScrollableTitle">투표시 주의사항</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
-              </div>
-              <div class="modal-body">
-                <p> 주의사항 </p>
-                <p> 1. </p>
-                <p> 2. </p>
-                <p> 3. </p>
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">취소</button>
-                <a href="{%url 'school-voting'%}"><button type="button" class="btn btn-primary">동의합니다.</button></a>
-              </div>
-            </div>
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalTitle" aria-hidden="true">
+      <div class="modal-dialog modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalTitle">투표 완료</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            이미 투표를 완료하셨습니다.
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+            <button type="button" class="btn btn-primary" data-dismiss="modal">Ok</button>
           </div>
         </div>
-        </div>
+      </div>
+    </div>
+
 {% endblock content %}
