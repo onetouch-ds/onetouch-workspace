@@ -28,6 +28,7 @@
           <h1 class="h3 mb-2 text-gray-800">건의하기</h1>
           <p class="mb-4">투표에 대해 건의하는 게시판입니다.</p>
 
+
           <!-- DataTales Example -->
           <div class="mb-4" style="">
             <div>
@@ -84,6 +85,12 @@
                 </li>
             </ul>
             </nav>
+
+          <div style="float:right; margin-right: 20px; margin-bottom: 10px;">
+          <a href="{%url 'new_suggest_vote'%}">
+                <img src="{% static 'img/write.svg'%}" alt="새글 작성 기호" width="30" height="30">글쓰기
+          </a>
+          </div>
 
           </div>
 

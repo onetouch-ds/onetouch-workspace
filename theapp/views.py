@@ -59,6 +59,14 @@ def suggest_vote(requests):
 def suggest_other(requests):
     return render(requests, 'suggest_other.html')
 
+ #건의사항 작성 투표
+def new_suggest_vote(requests):
+    return render(requests, 'new_suggest_vote.html')   
+
+ #건의사항 작성 기타
+def new_suggest_other(requests):
+    return render(requests, 'new_suggest_other.html')     
+
 # 메인 페이지
 def main(requests):
     return render(requests, 'main.html')
