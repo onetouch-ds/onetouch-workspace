@@ -21,7 +21,7 @@
          <br><br><br>
           <!-- Page Heading -->
           <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">건의하기 - 투표</h1>
+            <h1 class="h3 mb-0 text-gray-800">투표 건의하기</h1>
           </div>
 
           <!-- Content Row 투표 목록-->
@@ -35,13 +35,13 @@
             </div>
 
             <div class="form-group">
-                <label for="exampleFormControlInput1">작성자</label>
+                <label for="exampleFormControlInput2">작성자</label>
                 <input type="text" class="form-control" id="writer">
             </div>
 
             <div class="form-group">
                 <label for="exampleFormControlTextarea1">내용</label>
-                <textarea class="form-control" id="exampleFormControlTextarea1" rows="5"></textarea>
+                <textarea class="form-control" id="exampleFormControlTextarea1" rows="10"></textarea>
             </div>
 
             <form>
@@ -51,7 +51,13 @@
                 </div>
             </form>
 
-
+            
+            <div style="float:right">
+              <button type="button" class="btn btn-primary float-right" onClick="location.href='{%url 'suggest-vote'%}'">제출하기</button>
+            </div>
+            </div>
+            </div>
+          
             <!-- Footer -->
       <footer class="sticky-footer bg-white">
         <div class="container my-auto">
@@ -61,6 +67,7 @@
         </div>
       </footer>
       <!-- End of Footer -->
+</div>
 </div>
 
 {% endblock content %}
