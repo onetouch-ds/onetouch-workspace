@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from theapp.models import Notice
 
 # Create your views here.
 def index(requests):
@@ -49,7 +50,8 @@ def mypage(requests):
 
 # 공지사항
 def notice(requests):
-    return render(requests, 'notice.html')
+    notice = Notice.objects
+    return render(requests, 'notice.html',{'notice':notice})
 
 # 투표에 관한 건의사항
 def suggest_vote(requests):

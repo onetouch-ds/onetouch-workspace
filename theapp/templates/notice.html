@@ -43,27 +43,17 @@
                     </tr>
                   </thead>
                   <tbody>
-                    <tr>
-                      <th scope="row">1</th>
-                      <td>Mark</td>
-                      <td>Otto</td>
-                      <td>@mdo</td>
-                      <td>7/31</td>
+                  
+                  {%for notice in notice.all %}
+                  <tr>
+                    <th scope="row">{{notice.notice_pk}}</th>                    
+                    <td>{{notice.notice_title}}</td>
+                    <td>{{notice.notice_writer}}</td>
+                    <td>{{notice.notice_count}}</td>
+                    <td>{{notice.notice_updateday}}</td>
                     </tr>
-                    <tr>
-                      <th scope="row">2</th>
-                      <td>Jacob</td>
-                      <td>Thornton</td>
-                      <td>@fat</td>
-                      <td>7/31</td>
-                    </tr>
-                    <tr>
-                      <th scope="row">3</th>
-                      <td>Larry</td>
-                      <td>the Bird</td>
-                      <td>@twitter</td>
-                      <td>7/31</td>
-                    </tr>
+                  {%endfor%}  
+                  
                   </tbody>
                 </table>
               </div>
