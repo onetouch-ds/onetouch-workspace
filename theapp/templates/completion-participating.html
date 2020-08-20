@@ -23,18 +23,19 @@
 
             <!-- 소속 드롭 다운 버튼-->
           <nav class="navbar navbar-expand navbar-light bg-gray-200 mb-4">
-                <a class="navbar-brand" href="#">소속</a>
+                <a class="navbar-brand" href="#">전체</a>
                     <ul class="navbar-nav ml-auto"> 
                       <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                          Dropdown
+                          소속 선택
                         </a>
                         <div class="row">
 
                         <div class="dropdown-menu dropdown-menu-right animated--fade-in" style="width:300px;" aria-labelledby="navbarDropdown">
-                          <a class="dropdown-item text-lg" href="#">학교</a>
-                          <a class="dropdown-item text-lg" href="#">단체/학부</a>
-                          <a class="dropdown-item text-lg" href="#">학과</a>
+                          <a class="dropdown-item text-lg" href="{%url 'completion-participate'%}">전체</a>                          
+                          <a class="dropdown-item text-lg" href="{%url 'completion-participate_school'%}">학교</a>
+                          <a class="dropdown-item text-lg" href="{%url 'completion-participate_college'%}">단과대/학부</a>
+                          <a class="dropdown-item text-lg" href="{%url 'completion-participate_dept'%}">학과</a>
                       
                         </div>
                         </div>
