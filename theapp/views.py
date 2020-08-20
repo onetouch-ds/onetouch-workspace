@@ -1,4 +1,7 @@
 from django.shortcuts import render
+from .models import NoticeTable
+#from django.contrib.auth.models import NoticeTable
+from django.core.paginator import Paginator
 
 # Create your views here.
 def index(requests):
@@ -119,3 +122,16 @@ def result(requests):
 def login_new(requests):
     return render(requests, 'login_new.html')
 
+def TableListView(request):
+    table_list = NoticeTable.objects.all()
+    page = request.GET.get('page', 1)
+
+    paginator = Paaginator(table_list, 10) # 한 페이지에 10 개씩 데이터를 보이게 해 줌
+    try:
+        tables = paginator.page(page)
+    except PageNotAnInteger:
+        tables = paginator.page(1)
+    except EmptyPage:
+        tables = paginator.page(paginator.num_pages)
+
+    return render(request, 'theapp/notice.html', { 'tables': tables })
