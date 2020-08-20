@@ -9,8 +9,12 @@ https://docs.djangoproject.com/en/3.0/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.0/ref/settings/
 """
+from pathlib import Path
 import django_heroku
 import os
+import configparser
+config = configparser.ConfigParser()
+config.read('database.ini')
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -77,9 +81,14 @@ WSGI_APPLICATION = 'config.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR,'db.sqlite3'),
 
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME' : config['DATABASE']['NAME'],
+        'USER' : config['DATABASE']['USER'],
+        'PASSWORD' : config['DATABASE']['PASSWORD'],
+        'HOST' : config['DATABASE']['HOST'],
+        'PORT' : config['DATABASE']['PORT'],
+        'OPTIONS' : { 'init_command': "SET sql_mode='STRICT_TRANS_TABLES'" },
     }
 }
 

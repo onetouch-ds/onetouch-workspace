@@ -53,6 +53,11 @@ def notice(requests):
     notice = Notice.objects
     return render(requests, 'notice.html',{'notice':notice})
 
+# 공지사항 내용
+def notice_content(requests):
+    notice = Notice.objects
+    return render(requests, 'notice_content.html',{'notice':notice})
+
 # 투표에 관한 건의사항
 def suggest_vote(requests):
     return render(requests, 'suggest_vote.html')

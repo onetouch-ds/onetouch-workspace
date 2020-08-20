@@ -43,6 +43,7 @@ urlpatterns = [
     path('completion-participating-vote/dept/', views.completion_participate_dept, name='completion-participate_dept'),
     path('mypage/',views.mypage, name='mypage'),
     path('notice/',views.notice, name='notice'),
+    path('notice/content/',views.notice_content, name='notice_content'),
     path('suggest-vote/',views.suggest_vote, name='suggest-vote'),
     path('suggest-other/',views.suggest_other, name='suggest-other'),
     path('new-suggest/vote/',views.new_suggest_vote, name='new_suggest_vote'),
