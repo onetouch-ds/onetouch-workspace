@@ -77,7 +77,10 @@ class AuthUserUserPermissions(models.Model):
 class Complete(models.Model):
     complete_vote = models.IntegerField()
     member_mb_number = models.ForeignKey('Member', models.DO_NOTHING, db_column='member_mb_number')
-
+    
+    def __str__(self):
+        return self.member_mb_number
+    
     class Meta:
         managed = False
         db_table = 'complete'
@@ -143,6 +146,9 @@ class MajorVote(models.Model):
     mj_vt_result5 = models.CharField(max_length=45, blank=True, null=True)
     mj_final_result = models.CharField(max_length=45, blank=True, null=True)
 
+    def __str__(self):
+        return self.mj_vt_name
+    
     class Meta:
         managed = False
         db_table = 'major_vote'
@@ -155,6 +161,9 @@ class Member(models.Model):
     mb_major = models.CharField(max_length=45)
     mb_name = models.CharField(max_length=45)
 
+    def __str__(self):
+        return self.mb_number
+    
     class Meta:
         managed = False
         db_table = 'member'
@@ -167,11 +176,14 @@ class Notice(models.Model):
     nt_count = models.IntegerField(blank=True, null=True)
     nt_updateday = models.DateField()
 
+    def __str__(self):
+        return self.nt_title
+
     class Meta:
         managed = False
         db_table = 'notice'
-
-
+    
+     
 class SchoolVote(models.Model):
     sh_vt_pk = models.IntegerField(primary_key=True)
     sh_vt_name = models.CharField(max_length=45)
@@ -188,6 +200,9 @@ class SchoolVote(models.Model):
     sh_vt_result5 = models.CharField(max_length=45, blank=True, null=True)
     sh_final_result = models.CharField(max_length=45, blank=True, null=True)
 
+    def __str__(self):
+        return self.sh_vt_name
+    
     class Meta:
         managed = False
         db_table = 'school_vote'
@@ -201,6 +216,9 @@ class SuggestOther(models.Model):
     sgother_updateday = models.DateField()
     sgother_content = models.TextField(blank=True, null=True)
 
+    def __str__(self):
+        return self.sgother_title
+    
     class Meta:
         managed = False
         db_table = 'suggest_other'
@@ -214,6 +232,9 @@ class SuggestVote(models.Model):
     sgvote_updateday = models.DateField()
     sgvote_content = models.TextField(blank=True, null=True)
 
+    def __str__(self):
+        return self.sgvote_title
+        
     class Meta:
         managed = False
         db_table = 'suggest_vote'
@@ -235,6 +256,9 @@ class UndergraduateVote(models.Model):
     ud_vt_result5 = models.CharField(max_length=45, blank=True, null=True)
     ud_final_result = models.CharField(max_length=45, blank=True, null=True)
 
+    def __str__(self):
+        return self.ud_vt_name
+    
     class Meta:
         managed = False
         db_table = 'undergraduate_vote'
