@@ -175,6 +175,7 @@ class Notice(models.Model):
     nt_writer = models.CharField(max_length=45)
     nt_count = models.IntegerField(blank=True, null=True)
     nt_updateday = models.DateField()
+    nt_content = models.TextField(blank=True, null=True)
 
     def __str__(self):
         return self.nt_title
