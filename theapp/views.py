@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from theapp.models import Notice
 
 # Create your views here.
@@ -54,8 +54,8 @@ def notice(requests):
     return render(requests, 'notice.html',{'notice':notice})
 
 # 공지사항 내용
-def notice_content(requests):
-    notice = Notice.objects
+def notice_content(requests,pk):
+    notice = get_object_or_404(Notice,pk=pk)
     return render(requests, 'notice_content.html',{'notice':notice})
 
 # 투표에 관한 건의사항

@@ -48,9 +48,13 @@
                   {%for notice in notice.all %}
                   <tr>
                     <th scope="row" >{{notice.nt_pk}}</th>  
-                    <a href="{%url 'notice_content'%}">                  
-                    <td>{{notice.nt_title}}</td>
+                                      
+                    <td>
+                    <a href="{%url 'notice_content' pk=notice.nt_pk%}">
+                    {{notice.nt_title}}
                     </a>
+                    </td>
+        
                     <td>{{notice.nt_writer}}</td>
                     <td>{{notice.nt_count}}</td>
                     <td>{{notice.nt_updateday}}</td>
