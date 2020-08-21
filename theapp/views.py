@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404
-from theapp.models import Notice
-
+from theapp.models import Notice, SuggestVote, SuggestOther
+from theapp.forms import SuggestOtherForm
 # Create your views here.
 def index(requests):
     return render(requests, 'index.html')
@@ -60,14 +60,28 @@ def notice_content(requests,pk):
 
 # 투표에 관한 건의사항
 def suggest_vote(requests):
-    return render(requests, 'suggest_vote.html')
+    sgvote = SuggestVote.objects
+    return render(requests, 'suggest_vote.html',{'sgvote':sgvote})
+
 
 # 기타 건의사항
 def suggest_other(requests):
-    return render(requests, 'suggest_other.html')
+    sgother = SuggestOther.objects
+    return render(requests, 'suggest_other.html',{'sgother':sgother})
+
+# 투표 건의사항 내용
+def suggest_vote_content(requests,pk):
+    sgvote = get_object_or_404(SuggestVote,pk=pk)
+    return render(requests, 'suggest_vote_content.html',{'sgvote':sgvote}) 
+
+# 기타 건의사항 내용
+def suggest_other_content(requests,pk):
+    sgother = get_object_or_404(SuggestOther,pk=pk)
+    return render(requests, 'suggest_other_content.html',{'sgother':sgother})           
 
  #건의사항 작성 투표
 def new_suggest_vote(requests):
+
     return render(requests, 'new_suggest_vote.html')   
 
  #건의사항 작성 기타

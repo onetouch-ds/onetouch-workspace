@@ -44,27 +44,23 @@
                     </tr>
                   </thead>
                   <tbody>
+                    
+                  {%for sgvote in sgvote.all %}
                     <tr>
-                      <th scope="row">1</th>
-                      <td>Mark</td>
-                      <td>Otto</td>
-                      <td>@mdo</td>
-                      <td>7/31</td>
+                    <th scope="row" >{{sgvote.sgvote_pk}}</th>  
+                                      
+                    <td>
+                    <a href="{%url 'suggest_vote_content' pk=sgvote.sgvote_pk%}">
+                    {{sgvote.sgvote_title}}
+                    </td>
+        
+                    <td>{{sgvote.sgvote_writer}}</td>
+                    <td>{{sgvote.sgvote_count}}</td>
+                    <td>{{sgvote.sgvote_updateday}}</td>
                     </tr>
-                    <tr>
-                      <th scope="row">2</th>
-                      <td>Jacob</td>
-                      <td>Thornton</td>
-                      <td>@fat</td>
-                      <td>7/31</td>
-                    </tr>
-                    <tr>
-                      <th scope="row">3</th>
-                      <td>Larry</td>
-                      <td>the Bird</td>
-                      <td>@twitter</td>
-                      <td>7/31</td>
-                    </tr>
+                    
+                  {%endfor%}  
+
                   </tbody>
                 </table>
               </div>

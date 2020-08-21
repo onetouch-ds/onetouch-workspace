@@ -182,7 +182,8 @@ class Notice(models.Model):
     class Meta:
         managed = False
         db_table = 'notice'
-    
+
+
      
 class SchoolVote(models.Model):
     sh_vt_pk = models.IntegerField(primary_key=True)

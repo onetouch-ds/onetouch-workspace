@@ -17,8 +17,8 @@
 
         <br><br>
           <!-- Page Heading -->
-          <h1 class="h3 mb-2 text-gray-800">공지사항</h1>
-          <p class="mb-4">투표 서비스 이용하기 전 읽어주시길 바랍니다.</p>
+          <h1 class="h3 mb-2 text-gray-800">건의하기</h1>
+          <p class="mb-4">투표에 대해 건의하는 게시판입니다</p>
 
 
   <!-- Page Content -->
@@ -28,19 +28,21 @@
           <div class="col-12">
 
 
+
+
         <!-- Title -->
-        <h1 class="mt-4">{{notice.nt_title}}</h1>
+        <h1 class="mt-4">{{sgother.sgother_title}}</h1>
         <hr>
         <!-- Author -->
         <p class="lead">
-          작성자 : {{notice.nt_writer}}
+          작성자 : {{sgother.sgother_writer}}
           
         </p>
 
         <hr>
 
         <!-- Date/Time -->
-        <p>작성일 : {{notice.nt_updateday}}</p>
+        <p>작성일 : {{sgother.sgother_updateday}}</p>
 
         <hr>
 
@@ -50,7 +52,7 @@
         
 
         <!-- Post Content -->
-       <p>{{notice.nt_content|linebreaksbr}}
+       <p>{{sgother.sgother_content|linebreaksbr}}
        </p>
         <hr>
 
