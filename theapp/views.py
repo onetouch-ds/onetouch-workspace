@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404
-from theapp.models import Notice, SuggestVote, SuggestOther
-from theapp.forms import SuggestOtherForm
+from theapp.models import Notice, SuggestVote, SuggestOther, MajorVote
+
 # Create your views here.
 def index(requests):
     return render(requests, 'index.html')
@@ -81,7 +81,6 @@ def suggest_other_content(requests,pk):
 
  #건의사항 작성 투표
 def new_suggest_vote(requests):
-
     return render(requests, 'new_suggest_vote.html')   
 
  #건의사항 작성 기타
@@ -134,7 +133,8 @@ def college_vote(requests):
 
 # 학과 투표 페이지
 def department_vote(requests):
-    return render(requests, 'department_vote.html')
+    dept_vote = MajorVote.objects
+    return render(requests, 'department_vote.html',{'dept_vote':dept_vote})
 
 # 투표 만들기 페이지
 def make_vote(requests):
@@ -157,8 +157,9 @@ def college_pledge(requests):
     return render(requests, 'college-pledge.html')
 
 # 학과-투표하기 페이지
-def department_voting(requests):
-    return render(requests, 'department-voting.html')
+def department_voting(requests, pk):
+    dept_vote = get_object_or_404(MajorVote,pk=pk)
+    return render(requests, 'department_voting.html',{'dept_vote':dept_vote})
 
 # 학과-공약 페이지
 def department_pledge(requests):
