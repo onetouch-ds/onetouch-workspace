@@ -25,7 +25,7 @@
           <!-- Content Row 투표 목록-->
           <div class="row">
 
-        {%for dept_vote in dept_vote.all %}
+        {%for dept_vote in dept_vote.all %} 
           <div class="card-body">
                   <h4 class="large font-weight-bold">{{dept_vote.mj_vt_name}}
                   <a data-toggle="modal" data-target="#exampleModalScrollable" class="float-right"><span class="text-primary">투표하기</span> </a> <!-- 투표 화면 링크 추가-->
@@ -37,7 +37,7 @@
             
             <br>
 
-          {%endfor%}
+        
             <br>       
 
             <nav aria-label="학과 투표">
@@ -63,7 +63,9 @@
       </div>
       </div>
       </div>
-       <!-- Footer -->
+
+  </div>
+         <!-- Footer -->
       <footer class="sticky-footer bg-white">
         <div class="container my-auto">
           <div class="copyright text-center my-auto">
@@ -74,10 +76,8 @@
         </div>
       </footer>
       <!-- End of Footer -->
-  </div>
 
 
-        {%for dept_vote in dept_vote.all %}
 
         <!-- Modal -->
         <div class="modal fade" id="exampleModalScrollable" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
@@ -97,11 +97,11 @@
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">취소</button>
-                <a href="{%url 'department-voting' pk=dept_vote.mj_vt_pk%}"><button type="button" class="btn btn-primary">동의합니다.</button></a>
+                <a href="{%url 'department-voting' dept_vote.mj_vt_pk %}"><button type="button" class="btn btn-primary">동의합니다.</button></a>
               </div>
             </div>
           </div>
         </div>
-         {%endfor%}
+        {%endfor%}
 
 {% endblock content %}

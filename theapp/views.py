@@ -159,7 +159,7 @@ def college_pledge(requests):
 # 학과-투표하기 페이지
 def department_voting(requests, pk):
     dept_vote = get_object_or_404(MajorVote,pk=pk)
-    return render(requests, 'department_voting.html',{'dept_vote':dept_vote})
+    return render(requests, 'department-voting.html',{'dept_vote':dept_vote})
 
 # 학과-공약 페이지
 def department_pledge(requests):
