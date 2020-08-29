@@ -1,6 +1,5 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from .models import *
-from django.views.generic import ListView
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 import math
 
@@ -97,15 +96,6 @@ def suggest_vote(requests):
     start_block = (pageGroup - 1) * page_numbers_range
     end_block = start_block + page_numbers_range
 
-    # max_index = len(paginator.page_range)
-    # current_page = int(page) if page else 1
-    # start_index = int((current_page - 1) / page_numbers_range) * page_numbers_range
-    # end_index = start_index + page_numbers_range
-
-    # if end_index >= max_index:
-    #     end_index = max_index
-
-#    paginator_range = paginator.page_range[start_index:end_index]
     paginator_range = paginator.page_range[start_block:end_block]
 
     context = {
@@ -142,6 +132,30 @@ def suggest_other(requests):
     }
 
     return render(requests, 'suggest_other.html', context)
+
+
+# 공지사항 내용
+def notice_content(requests,pk):
+    notice = get_object_or_404(Notice, pk=pk)
+    return render(requests, 'notice_content.html', {'notice':notice})
+
+# 투표 건의사항 내용
+def suggest_vote_content(requests,pk):
+    sgvote = get_object_or_404(SuggestVote, pk=pk)
+    return render(requests, 'suggest_vote_content.html', {'sgvote':sgvote}) 
+
+# 기타 건의사항 내용
+def suggest_other_content(requests,pk):
+    sgother = get_object_or_404(SuggestOther, pk=pk)
+    return render(requests, 'suggest_other_content.html', {'sgother':sgother})           
+
+ #건의사항 작성 투표
+def new_suggest_vote(requests):
+    return render(requests, 'new_suggest_vote.html')   
+
+ #건의사항 작성 기타
+def new_suggest_other(requests):
+    return render(requests, 'new_suggest_other.html')     
 
 # 메인 페이지
 def main(requests):
@@ -268,24 +282,27 @@ def make_vote(requests):
     return render(requests, 'make_vote.html')
 
 # 학교-투표하기 페이지
-def school_voting(requests):
-    return render(requests, 'school-voting.html')
+def school_voting(requests, pk):
+    school_vote = get_object_or_404(SchoolVote, pk=pk)
+    return render(requests, 'school-voting.html', {'school_vote':school_vote})
 
 # 학교-공약 페이지
 def school_pledge(requests):
     return render(requests, 'school-pledge.html')
 
 # 학부-투표하기 페이지
-def college_voting(requests):
-    return render(requests, 'college-voting.html')
+def college_voting(requests, pk):
+    undergraduate_vote = get_object_or_404(UndergraduateVote, pk=pk)
+    return render(requests, 'college-voting.html', {'undergraduate_vote':undergraduate_vote})
 
 # 학부-공약 페이지
 def college_pledge(requests):
     return render(requests, 'college-pledge.html')
 
 # 학과-투표하기 페이지
-def department_voting(requests):
-    return render(requests, 'department-voting.html')
+def department_voting(requests, pk):
+    dept_vote = get_object_or_404(MajorVote, pk=pk)
+    return render(requests, 'department-voting.html', {'dept_vote':dept_vote})
 
 # 학과-공약 페이지
 def department_pledge(requests):

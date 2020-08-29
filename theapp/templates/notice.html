@@ -46,8 +46,9 @@
                   <tbody>
                     {% for notice in tables %}
                       <tr>
-                        <td>{{ notice.nt_pk }}</td>
-                        <td>{{ notice.nt_title }}</td>
+                        <th scope="row" >{{ notice.nt_pk }}</th>
+                        <td>  <a href="{%url 'notice_content' pk=notice.nt_pk%}">
+                          {{notice.nt_title}} </a></td>
                         <td>{{ notice.nt_writer }}</td>
                         <td>{{ notice.nt_count }}</td>
                         <td>{{ notice.nt_updateday }}</td>
@@ -109,7 +110,9 @@
       <footer class="sticky-footer bg-white">
         <div class="container my-auto">
           <div class="copyright text-center my-auto">
-            <span>Copyright &copy; Your Website 2020</span>
+            <span>Copyright &copy; onetouch 2020</span>
+            <br>
+            <span>TY SW SJ SH HJ</span>
           </div>
         </div>
       </footer>

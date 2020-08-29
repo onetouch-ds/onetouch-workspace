@@ -28,6 +28,7 @@
           <h1 class="h3 mb-2 text-gray-800">건의하기</h1>
           <p class="mb-4">투표에 대해 건의하는 게시판입니다.</p>
 
+
           <!-- DataTales Example -->
           <div class="mb-4" style="">
             <div>
@@ -45,8 +46,9 @@
                   <tbody>
                     {% for suggest_vote in suggest_votes %}
                       <tr>
-                        <td>{{ suggest_vote.sgvote_pk }}</td>
-                        <td>{{ suggest_vote.sgvote_title }}</td>
+                        <th scope="row" >{{suggest_vote.sgvote_pk}}</th>  
+                        <td>  <a href="{%url 'suggest_vote_content' pk=suggest_vote.sgvote_pk%}">
+                          {{suggest_vote.sgvote_title}} </a></td>
                         <td>{{ suggest_vote.sgvote_writer }}</td>
                         <td>{{ suggest_vote.sgvote_count }}</td>
                         <td>{{ suggest_vote.sgvote_updateday }}</td>
@@ -58,7 +60,7 @@
             </div>
 
             <nav aria-label="단과대/학부 투표">
-              {% if suggest_others.has_other_pages %} <!-- 한 화면에 10 개씩 보여 주는 경우에 다음 페이지가 있을 경우 -->
+              {% if suggest_votes.has_other_pages %} <!-- 한 화면에 10 개씩 보여 주는 경우에 다음 페이지가 있을 경우 -->
                 <ul class = "pagination">
 
                   {% if suggest_votes.has_previous %} <!-- 현재 페이지에서 이전 페이지가 존재할 때 활성화, 없을 경우 비활성화 -->
@@ -95,8 +97,13 @@
               {% endif %}
             </nav>
 
+          <div style="float:right; margin-right: 20px; margin-bottom: 10px;">
+          <a href="{%url 'new_suggest_vote'%}">
+                <img src="{% static 'img/write.svg'%}" alt="새글 작성 기호" width="30" height="30">글쓰기
+          </a>
           </div>
 
+          </div>
         </div>
         <!-- /.container-fluid -->
 
@@ -107,7 +114,9 @@
       <footer class="sticky-footer bg-white">
         <div class="container my-auto">
           <div class="copyright text-center my-auto">
-            <span>Copyright &copy; Your Website 2020</span>
+            <span>Copyright &copy; onetouch 2020</span>
+            <br>
+            <span>TY SW SJ SH HJ</span>
           </div>
         </div>
       </footer>

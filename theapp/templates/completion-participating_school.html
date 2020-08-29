@@ -62,8 +62,7 @@
 
             <div class="card-body2">
                   <h4 class="large font-weight-bold">총장 투표
-                           <!-- Button trigger modal -->
-                  <a data-toggle="modal" data-target="#exampleModal" class="float-right"><span class="text" style="color:silver; font-weight:bold">투표완료</span> </a> 
+                  <a class="float-right" href="{%url 'vote-result'%}"><span class="text" style="color:silver; font-weight:bold">결과보기</span> </a> 
                   </h4>
                   <h5 class="large font-weight-bold">D-10</h5>
                   <div class="progress mb-4">
@@ -102,6 +101,8 @@
         <div class="container my-auto">
           <div class="copyright text-center my-auto">
             <span>Copyright &copy; onetouch 2020</span>
+            <br>
+            <span>TY SW SJ SH HJ</span>
           </div>
         </div>
       </footer>
@@ -131,5 +132,7 @@
         </div>
       </div>
     </div>
+
+
 
 {% endblock content %}
