@@ -7,16 +7,14 @@
 # Feel free to rename the models, but don't rename db_table values or field names.
 from django.db import models
 
-<<<<<<< HEAD
 # Create your models here.
 
-class NoticeTable(models.Model):
-    num = models.IntegerField()
-    title = models.TextField()
-    author = models.TextField()
-    click = models.IntegerField()
-    date = models.DateTimeField()
-=======
+# class NoticeTable(models.Model):
+#     num = models.IntegerField()
+#     title = models.TextField()
+#     author = models.TextField()
+#     click = models.IntegerField()
+#     date = models.DateTimeField()
 
 class AuthGroup(models.Model):
     name = models.CharField(unique=True, max_length=150)
@@ -258,4 +256,3 @@ class VoteList(models.Model):
     class Meta:
         managed = False
         db_table = 'vote_list'
->>>>>>> 1e084498faeb6345ef38af6c6324c8abdfc2f896

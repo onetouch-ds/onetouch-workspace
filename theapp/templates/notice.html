@@ -13,135 +13,6 @@
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
 
-<script>
-  var totalData = 153; // 총 데이터 수
-  var dataPerPage = 10; // 한 페이지에 나타낼 데이터 수
-  var pageCount = 5; // 한 화면에 나타낼 페이지 수
-
-  function paging(totalData, dataPerPage, pageCount, currentPage) {
-    var totalPage = Math.ceil(totalData / dataPerPage);    // 총 페이지 수
-    var pageGroup = Math.ceil(currentPage / pageCount);    // 페이지 그룹
-        
-    var last = pageGroup * pageCount;    // 화면에 보여질 마지막 페이지 번호
-
-    if(last > totalPage)
-       last = totalPage;
-
-    var first = pageGroup * 5 - 4;
-//    var first = last - (pageCount - 1);    // 화면에 보여질 첫번째 페이지 번호
-    var next = last + 1;
-    var prev = first - 1;
-        
-    var $pingingView = $("#pagination");
-        
-    var html = "";
-        
-    if(prev > 0)
-        html += "<li class=\"page-item\"><a class=\"page-link\" href=\"#\" id=\"prev\">Previous</a></li>";
-//    else if (pageGroup = 1) { //페이지 그룹이 첫 번째일 경우
-//        html += "<li class=\"page-item\"><a class=\"page-link\" href=\"#\" id=\"prev\" tabindex=\"-1\" aria-disabled=\"true\">Previous</a></li>";
-        //$("#prev a").attr(aria-disabled, "true");
-        //$("#pagination a").prop("disabled", false);
-//    }
-        
-    for(var i = first; i <= last; i++){
-        html += "<li class=\"page-item\"><a class=\"page-link\" href=\"#\" id=" + i + ">" + i + "</a></li>";
-    }
-
-    if(last < totalPage)
-        html += "<li class=\"page-item\"><a class=\"page-link\" href=\"#\" id=\"next\">Next</a></li>";
-  //  else {
-  //      html += "<li class=\"page-item\"><a class=\"page-link\" href=\"#\" id=\"prev\" tabindex=\"-1\" aria-disabled=\"true\">Next</a></li>";
-  //  }
-        
-    $("#pagination").html(html);    // 페이지 목록 생성
-//    $("#pagination a").css("color", "black");
-//    $("#pagination a#" + currentPage).css({"text-decoration":"none", 
-//                                       "color":"red", 
-//                                       "font-weight":"bold"});    // 현재 페이지 표시
-                                           
-//    $("#pagination a").attr({ //innertext 또는 태그 추가 찾아 보기
-//      'span' : (current)
-//    });
-
-//    $("#pagination a#" + currentPage).createElement('span').attr({"class" : "sr-only"});
-
-    $("#pagination a").click(function(){
-            
-        var $item = $(this);
-        var $id = $item.attr("id");
-        var selectedPage = $item.text();
-        var pg = pageGroup;
-            
-        if($id == "next") {
-          selectedPage = next;
-          pg = pageGroup + 1;
-        }   
-        if($id == "prev") {
-          selectedPage = prev;
-          pg = pageGroup - 1;
-        }   
-
-        var url = "page=" + selectedPage + "range=" + pg;
-//        alert(url);
-            
-        paging(totalData, dataPerPage, pageCount, selectedPage);
-    });                                   
-//    pagination.innerHTML = html;
-//    addEventPagination(first, last);
-  }
-
-    {% comment %} var list = [
-      {num: 1, title: 'mark', author: 'abc', click: '2', day: '08/09'}
-      {num: 2, title: 'jay', author: 'add', click: '3', day: '08/10'}
-    ];
-
-    var table = document.getElementById('table').querySelector('tbody');
-
-    var renderTable = function(page) {
-      var startNum = (pageCount * (page - 1));
-      var endNum = ((pageCount * page) >= list.length) ? list.length : (pageCount * page);
-
-      var html = '';
-      for (var index = startNum; index < endNum; index++) {
-        html += '<tr><td>'+list[index]+'</td><td>+'list[index].title+'</td><td>+'list[index].author+'</td><td>+'list[index].click+'</td><td>+'list[index].day+'</td></tr>';
-      }
-
-      table.innerHTML = html;
-    }
-    
-    var renderTableAndPagination = function(page = 1) {
-      renderTable(page);
-      renderPagination(page);
-    }
-
-    var addEventPagination = function(startPage, endPage) {
-      if (!!document.querySelector(".first_page")) {
-        document.querySelector(".first_page").addEventListener('clcik', ()=>{renderTableAndPagination(1);
-        });
-      }
-    } {% endcomment %}
-
-    var getParameter = fucntion (param) {
-      var returnValue;
-      var url = location.href;
-      var parameters = (url.slice(url.indexOf('?') + 1, url.length)).split('&');
-      for (var i = 0; i < parameters.length; i++) {
-        var varName = parameters[i].split('=')[0];
-        if (varName.toUpperCase() == param.toUpperCase()) {
-          returnValue = parameters[i].split('=')[1];
-          return decodeURIComponent(returnValue);
-      }
-    }
-  };
-
-//    $("document").ready(function(){        
-//        paging(totalData, dataPerPage, pageCount, 1);
-//    });
-
-//    renderTableAndPagination();
-</script>
-
 {% endblock head%}
 
 {% block content %}
@@ -173,34 +44,13 @@
                     </tr>
                   </thead>
                   <tbody>
-                    {% comment %} <tr>
-                      <th scope="row">1</th>
-                      <td>Mark</td>
-                      <td>Otto</td>
-                      <td>@mdo</td>
-                      <td>7/31</td>
-                    </tr>
-                    <tr>
-                      <th scope="row">2</th>
-                      <td>Jacob</td>
-                      <td>Thornton</td>
-                      <td>@fat</td>
-                      <td>7/31</td>
-                    </tr>
-                    <tr>
-                      <th scope="row">3</th>
-                      <td>Larry</td>
-                      <td>the Bird</td>
-                      <td>@twitter</td>
-                      <td>7/31</td>
-                    </tr> {% endcomment %}
-                    {% for table in tables %}
+                    {% for notice in tables %}
                       <tr>
-                        <td>{{ table.num }}</td>
-                        <td>{{ table.title }}</td>
-                        <td>{{ table.author }}</td>
-                        <td>{{ table.click }}</td>
-                        <td>{{ table.date }}</td>
+                        <td>{{ notice.nt_pk }}</td>
+                        <td>{{ notice.nt_title }}</td>
+                        <td>{{ notice.nt_writer }}</td>
+                        <td>{{ notice.nt_count }}</td>
+                        <td>{{ notice.nt_updateday }}</td>
                       </tr>
                     {% endfor %}
                   </tbody>
@@ -209,38 +59,7 @@
             </div>
 
             <nav aria-label="단과대/학부 투표">
-<!--            <ul class="pagination">
-                <li class="page-item">
-                <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
-                </li>
-                
-                {% comment %} <li class="page-item"><a class="page-link" href="#">1</a></li>
-
-                <li class="page-item active" aria-current="page">
-                <a class="page-link" href="#">2 <span class="sr-only">(current)</span></a>
-                </li> {% endcomment %}
-
-                <li class="page-item active" aria-current="page"> 
-                <a class="page-link" href="#">1 <span class="sr-only">(current)</span></a></li>
-
-                <li class="page-item"><a class="page-link" href="#">2</a></li>
-
-                <li class="page-item"><a class="page-link" href="#">3</a></li>
-
-                <li class="page-item"><a class="page-link" href="#">4</a></li>
-
-                <li class="page-item"><a class="page-link" href="#">5</a></li>
-
-                <li class="page-item">
-                <a class="page-link" href="#">Next</a>
-                </li>
-            </ul>
-            -->
-
-<!--              <ul class="pagination" id="pagination">
-              {% comment %} <li class="page-item" id="page-item"></li> {% endcomment %}
-              </ul>-->
-<!--              {% if tables.has_ohter_pages %} 한 화면에 10 개씩 보여 주는 경우에 다음 페이지가 있을 경우-->
+              {% if tables.has_other_pages %} <!-- 한 화면에 10 개씩 보여 주는 경우에 다음 페이지가 있을 경우 -->
                 <ul class = "pagination">
 
                   {% if tables.has_previous %} <!-- 현재 페이지에서 이전 페이지가 존재할 때 활성화, 없을 경우 비활성화 -->
@@ -249,16 +68,14 @@
                     <li class = "page-item disabled"><span class="page-link">&laquo;</sapn></li>
                   {% endif %}
 
-                  {% for i in tables.paginator.page_range %} <!-- 페이지를 전부 보여 준다 -->
-                    {% if i >= tables.number|add:-2 and i <= tables.number|add:2 %} <!-- 현재 호출된 페이지 기준으로 좌우 2개씩 5개 미만으로 보이게 한다 -->
+                  {% for i in paginator_range %} <!-- 페이지를 전부 보여 준다 -->
 
-                      {% if tables.number == i %} <!-- 현재 보고 있는 페이지일 경우, 선택 표시 -->
-                        <li class="page-item active"><a class="page-link" href="?page={{ i }}">{{ i }} <span class="sr-only">(current)</span></a></li>
-                      {% else %}
-                        <li class="page-item"><a class="page-link" href="?page={{ i }}">{{ i }}</a></li>
-                      {% endif %}
+                    {% if tables.number == i %} <!-- 현재 보고 있는 페이지일 경우, 선택 표시 -->
+                      <li class="page-item active"><a class="page-link" href="?page={{ i }}">{{ i }} <span class="sr-only">(current)</span></a></li>
+                    {% else %}
+                      <li class="page-item"><a class="page-link" href="?page={{ i }}">{{ i }}</a></li>
+                    {% endif %} 
 
-                    {% endif %}
                   {% endfor %}
 
                   {% if tables.has_next %} <!-- 현재 페이지에서 다음 페이지가 존재할 때 활성화, 없을 경우 비활성화 -->
@@ -269,17 +86,14 @@
 
                 </ul>
 
-<!--              {% else %} 다음 페이지가 없을 경우, 페이지 1 선택 효과와 나머지 버튼 비활성화 
+              {% comment %} {% else %} <!-- 다음 페이지가 없을 경우, 페이지 1 선택 효과와 나머지 버튼 비활성화 -->
                 <ul class = "pagination">
                   <li class = "page-item disabled"><span class="page-link">&laquo;</sapn></li>
                   <li class="page-item active"><a class="page-link" href="?page={{ 1 }}">{{ 1 }}<span class="sr-only">(current)</span></a></li>
-                  <li class="page-item disabled"><a class="page-link">2</a></li>
-                  <li class="page-item disabled"><a class="page-link">3</a></li>
-                  <li class="page-item disabled"><a class="page-link">4</a></li>
-                  <li class="page-item disabled"><a class="page-link">5</a></li>
                   <li class="page-item disabled"><span class="page-link">&raquo;</sapn></li>
-                </ul>
-              {% endif %} -->
+                </ul>  {% endcomment %}
+
+              {% endif %} 
 
             </nav>
 
