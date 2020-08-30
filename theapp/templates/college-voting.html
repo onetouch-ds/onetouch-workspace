@@ -16,35 +16,35 @@
           <div class="row">
             <div class="col-12">
               <div class="list-group">
-                <h4 class="large font-weight-bold"><div id="candidatenum">기호 1번</div>
+                <h4 class="large font-weight-bold"><div id="candidatenum">{{undergraduate_vote.ud_category1}}</div>
                       <a href="{% url 'college-pledge'%}" class="float-right"> <!-- 공약 보기 링크 연결 -->
                         <span class="text" style="color:silver; font-weight:bold">공약보기</span>
                       </a> <br>
                       <a data-toggle="modal" data-target="#exampleModal1" class="float-right"><span class="text-primary">투표하기</span> </a> <!-- 투표 화면 링크 추가-->
                       </h4>
                       <hr>
-                <h4 class="large font-weight-bold"><div id="candidatenum">기호 2번</div>
+                <h4 class="large font-weight-bold"><div id="candidatenum">{{undergraduate_vote.ud_category2}}</div>
                     <a href="{% url 'college-pledge'%}" class="float-right"> <!-- 공약 보기 링크 연결 -->
                         <span class="text" style="color:silver; font-weight:bold">공약보기</span>
                       </a> <br>
                       <a data-toggle="modal" data-target="#exampleModal2" class="float-right"><span class="text-primary">투표하기</span> </a> <!-- 투표 화면 링크 추가-->
                       </h4>
                       <hr>
-                <h4 class="large font-weight-bold"><div id="candidatenum">기호 3번</div>
+                <h4 class="large font-weight-bold"><div id="candidatenum">{{undergraduate_vote.ud_category3}}</div>
                     <a href="{% url 'college-pledge'%}" class="float-right"> <!-- 공약 보기 링크 연결 -->
                         <span class="text" style="color:silver; font-weight:bold">공약보기</span>
                       </a> <br>
                       <a data-toggle="modal" data-target="#exampleModal3" class="float-right"><span class="text-primary">투표하기</span> </a> <!-- 투표 화면 링크 추가-->
                       </h4>
                       <hr>
-                <h4 class="large font-weight-bold"><div id="candidatenum">기호 4번</div>
+                <h4 class="large font-weight-bold"><div id="candidatenum">{{undergraduate_vote.ud_category4}}</div>
                     <a href="{% url 'college-pledge'%}" class="float-right"> <!-- 공약 보기 링크 연결 -->
                         <span class="text" style="color:silver; font-weight:bold">공약보기</span>
                       </a> <br>
                       <a data-toggle="modal" data-target="#exampleModal4" class="float-right"><span class="text-primary">투표하기</span> </a> <!-- 투표 화면 링크 추가-->
                       </h4>
                       <hr>
-                <h4 class="large font-weight-bold"><div id="candidatenum">기권</div>
+                <h4 class="large font-weight-bold"><div id="candidatenum">{{undergraduate_vote.ud_category5}}</div>
                       <a data-toggle="modal" data-target="#exampleModal5" class="float-right"><span class="text-primary">투표하기</span> </a> <!-- 투표 화면 링크 추가-->
                       </h4>
                       <hr>
@@ -61,7 +61,7 @@
           <div class="copyright text-center my-auto">
             <span>Copyright &copy; onetouch 2020</span>
             <br>
-            <span>HY SW SJ HJ SH</span>
+            <span>TY SW SJ SH HJ</span>
           </div>
         </div>
       </footer>
@@ -80,7 +80,7 @@
             </button>
           </div>
           <div class="modal-body">
-          <h4>기호 1번에 투표하시겠습니까?</h4><!--데이터 받아오는 걸로 바꾸기-->
+          <h4>{{undergraduate_vote.ud_category1}}에 투표하시겠습니까?</h4><!--데이터 받아오는 걸로 바꾸기-->
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">취소</button>
@@ -100,7 +100,7 @@
             </button>
           </div>
           <div class="modal-body">
-          <h4>기호 2번에 투표하시겠습니까?</h4>
+          <h4>{{undergraduate_vote.ud_category2}}에 투표하시겠습니까?</h4>
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">취소</button>
@@ -120,7 +120,7 @@
             </button>
           </div>
           <div class="modal-body">
-          <h4>기호 3번에 투표하시겠습니까?</h4>
+          <h4>{{undergraduate_vote.ud_category3}}에 투표하시겠습니까?</h4>
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">취소</button>
@@ -140,7 +140,7 @@
             </button>
           </div>
           <div class="modal-body">
-          <h4>기호 4번에 투표하시겠습니까?</h4>
+          <h4>{{undergraduate_vote.ud_category4}}에 투표하시겠습니까?</h4>
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">취소</button>
@@ -160,7 +160,7 @@
             </button>
           </div>
           <div class="modal-body">
-          <h4>기권하시겠습니까?</h4>
+          <h4>{{undergraduate_vote.ud_category5}}에 투표하시겠습니까?</h4>
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">취소</button>

@@ -43,41 +43,57 @@
                     </tr>
                   </thead>
                   <tbody>
-                    {%for sgother in sgother.all %}
+                    {% for suggest_other in suggest_others %}
                       <tr>
-                        <th scope="row" >{{sgother.sgother_pk}}</th>  
-                                          
-                        <td>
-                        <a href="{%url 'suggest_other_content' pk=sgother.sgother_pk%}">
-                        {{sgother.sgother_title}}
-                        </a>
-                        </td>
-            
-                        <td>{{sgother.sgother_writer}}</td>
-                        <td>{{sgother.sgother_count}}</td>
-                        <td>{{sgother.sgother_updateday}}</td>
+                        <th scope="row" >{{suggest_other.sgother_pk}}</th>  
+                        <td> <a href="{%url 'suggest_other_content' pk=suggest_other.sgother_pk%}">
+                          {{suggest_other.sgother_title}} </a></td>
+                        <td>{{ suggest_other.sgother_writer }}</td>
+                        <td>{{ suggest_other.sgother_count }}</td>
+                        <td>{{ suggest_other.sgother_updateday }}</td>
                       </tr>
-                    
-                  {%endfor%}  
+                    {% endfor %}
                   </tbody>
                 </table>
               </div>
             </div>
 
             <nav aria-label="단과대/학부 투표">
-            <ul class="pagination">
-                <li class="page-item disabled">
-                <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
-                </li>
-                <li class="page-item"><a class="page-link" href="#">1</a></li>
-                <li class="page-item active" aria-current="page">
-                <a class="page-link" href="#">2 <span class="sr-only">(current)</span></a>
-                </li>
-                <li class="page-item"><a class="page-link" href="#">3</a></li>
-                <li class="page-item">
-                <a class="page-link" href="#">Next</a>
-                </li>
-            </ul>
+              {% if suggest_others.has_other_pages %} <!-- 한 화면에 10 개씩 보여 주는 경우에 다음 페이지가 있을 경우 -->
+                <ul class = "pagination">
+
+                  {% if suggest_others.has_previous %} <!-- 현재 페이지에서 이전 페이지가 존재할 때 활성화, 없을 경우 비활성화 -->
+                    <li class = "page-item"><a class = "page-link" href="?page={{ suggest_others.previous_page_number }}">&laquo;</a></li>
+                  {% else %}
+                    <li class = "page-item disabled"><span class="page-link">&laquo;</sapn></li>
+                  {% endif %}
+
+                  {% for i in paginator_range %} <!-- 페이지를 전부 보여 준다 -->
+
+                    {% if suggest_others.number == i %} <!-- 현재 보고 있는 페이지일 경우, 선택 표시 -->
+                      <li class="page-item active"><a class="page-link" href="?page={{ i }}">{{ i }} <span class="sr-only">(current)</span></a></li>
+                    {% else %}
+                      <li class="page-item"><a class="page-link" href="?page={{ i }}">{{ i }}</a></li>
+                    {% endif %} 
+
+                  {% endfor %}
+
+                  {% if suggest_others.has_next %} <!-- 현재 페이지에서 다음 페이지가 존재할 때 활성화, 없을 경우 비활성화 -->
+                    <li class="page-item"><a class="page-link" href="?page={{ suggest_others.next_page_number }}">&raquo;</a></li>
+                  {% else %}
+                    <li class="page-item disabled"><span class="page-link">&raquo;</sapn></li>
+                  {% endif %}
+
+                </ul>
+
+              {% comment %} {% else %}  <!-- 다음 페이지가 없을 경우, 페이지 1 선택 효과와 이전 버튼과 다음 버튼 비활성화 -->
+                <ul class = "pagination">
+                  <li class = "page-item disabled"><span class="page-link">&laquo;</sapn></li>
+                  <li class="page-item active"><a class="page-link" href="?page={{ 1 }}">{{ 1 }}<span class="sr-only">(current)</span></a></li>
+                  <li class="page-item disabled"><span class="page-link">&raquo;</sapn></li>
+                </ul>  {% endcomment %}
+
+              {% endif %} 
             </nav>
 
           <div style="float:right; margin-right: 20px; margin-bottom: 10px;">
@@ -100,7 +116,7 @@
           <div class="copyright text-center my-auto">
             <span>Copyright &copy; Your Website 2020</span>
             <br>
-            <span>HY SW SJ HJ SH</span>
+            <span>TY SW SJ SH HJ</span>
           </div>
         </div>
       </footer>
