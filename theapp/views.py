@@ -1,7 +1,11 @@
 from django.shortcuts import render, get_object_or_404
+<<<<<<< HEAD
 from .models import *
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 import math
+=======
+from theapp.models import Notice, SuggestVote, SuggestOther, MajorVote
+>>>>>>> 4c5dc9a0bd4079898afa5c422fb50678b8222447
 
 # Create your views here.
 def index(requests):
@@ -52,6 +56,7 @@ def mypage(requests):
 
 # 공지사항
 def notice(requests):
+<<<<<<< HEAD
     table_list = Notice.objects.all()
     page = requests.GET.get('page', 1)
 
@@ -148,6 +153,36 @@ def suggest_vote_content(requests,pk):
 def suggest_other_content(requests,pk):
     sgother = get_object_or_404(SuggestOther, pk=pk)
     return render(requests, 'suggest_other_content.html', {'sgother':sgother})           
+=======
+    notice = Notice.objects
+    return render(requests, 'notice.html',{'notice':notice})
+
+# 공지사항 내용
+def notice_content(requests,pk):
+    notice = get_object_or_404(Notice,pk=pk)
+    return render(requests, 'notice_content.html',{'notice':notice})
+
+# 투표에 관한 건의사항
+def suggest_vote(requests):
+    sgvote = SuggestVote.objects
+    return render(requests, 'suggest_vote.html',{'sgvote':sgvote})
+
+
+# 기타 건의사항
+def suggest_other(requests):
+    sgother = SuggestOther.objects
+    return render(requests, 'suggest_other.html',{'sgother':sgother})
+
+# 투표 건의사항 내용
+def suggest_vote_content(requests,pk):
+    sgvote = get_object_or_404(SuggestVote,pk=pk)
+    return render(requests, 'suggest_vote_content.html',{'sgvote':sgvote}) 
+
+# 기타 건의사항 내용
+def suggest_other_content(requests,pk):
+    sgother = get_object_or_404(SuggestOther,pk=pk)
+    return render(requests, 'suggest_other_content.html',{'sgother':sgother})           
+>>>>>>> 4c5dc9a0bd4079898afa5c422fb50678b8222447
 
  #건의사항 작성 투표
 def new_suggest_vote(requests):
@@ -251,6 +286,7 @@ def college_vote(requests):
 
 # 학과 투표 페이지
 def department_vote(requests):
+<<<<<<< HEAD
     major_vote_list = MajorVote.objects.all()
     paginator = Paginator(major_vote_list, 3) # 한 페이지에 3 개씩 데이터를 보이게 해 줌
     page = requests.GET.get('page', 1)
@@ -276,6 +312,10 @@ def department_vote(requests):
     }
 
     return render(requests, 'department_vote.html', context)
+=======
+    dept_vote = MajorVote.objects
+    return render(requests, 'department_vote.html',{'dept_vote':dept_vote})
+>>>>>>> 4c5dc9a0bd4079898afa5c422fb50678b8222447
 
 # 투표 만들기 페이지
 def make_vote(requests):
@@ -301,8 +341,13 @@ def college_pledge(requests):
 
 # 학과-투표하기 페이지
 def department_voting(requests, pk):
+<<<<<<< HEAD
     dept_vote = get_object_or_404(MajorVote, pk=pk)
     return render(requests, 'department-voting.html', {'dept_vote':dept_vote})
+=======
+    dept_vote = get_object_or_404(MajorVote,pk=pk)
+    return render(requests, 'department-voting.html',{'dept_vote':dept_vote})
+>>>>>>> 4c5dc9a0bd4079898afa5c422fb50678b8222447
 
 # 학과-공약 페이지
 def department_pledge(requests):
