@@ -41,9 +41,30 @@
                 <label for="exampleFormControlTextarea1">투표 설명</label>
                 <textarea class="form-control" id="exampleFormControlTextarea1" rows="5"></textarea>
             </div>
-            <div style="float:right">
-                      <img src="{% static 'img/plus2.svg'%}" alt="플러스 기호" width="20" height="20">
-                    </div>
+
+            <!--후보 추가-->
+            <script  language="javascript">
+            function addform(){             
+
+              const str = '<div class="form-group">'+'<label for="exampleFormControlInput1">투표 후보</label>'+
+                '<input type="text" class="form-control" id="exampleFormControlInput1">'+
+                 '<div id="addnewform">'+
+                '</div>'+
+            '</div>'+
+            '<div class="form-group">'+
+                '<label for="exampleFormControlTextarea1">후보 설명</label>'+
+                '<textarea class="form-control" id="exampleFormControlTextarea1" rows="5">'+'</textarea>'+
+            '</div>'
+             $("#addnewform").append(str);
+
+            }
+            </script>
+
+
+          <div style="float:right">
+                      <img onClick="addform()"  src="{% static 'img/plus2.svg'%}" alt="플러스 기호" width="20" height="20">
+          </div>
+
            <div class="form-group">
                 <label for="exampleFormControlInput1">투표 후보</label>
                 <input type="text" class="form-control" id="exampleFormControlInput1">
@@ -52,19 +73,22 @@
                 <label for="exampleFormControlTextarea1">후보 설명</label>
                 <textarea class="form-control" id="exampleFormControlTextarea1" rows="5"></textarea>
             </div>
+            <div id="addnewform">
+            </div>
             <button type="button" class="btn btn-user text-white float-right">제출하기</button>
             </form>
             </div>
             </div>
             </div>
         </div>
+        
             <!-- Footer -->
       <footer class="sticky-footer bg-white">
         <div class="container my-auto">
           <div class="copyright text-center my-auto">
             <span>Copyright &copy; onetouch 2020</span>
             <br>
-            <span> TY SW SJ HJ SH </span>
+            <span> HJ SH SJ SW TY </span>
           </div>
         </div>
       </footer>
