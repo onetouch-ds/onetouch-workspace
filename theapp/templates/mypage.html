@@ -4,6 +4,7 @@
 {% block head %}
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 <link href="{% static 'vendor/fontawesome-free/css/all.min.css'%}" rel="stylesheet" type="text/css">
+
 {% endblock head %}
 
 {% block content %}
@@ -19,7 +20,7 @@
           <br><br>
 
           <!-- Page Heading -->
-          <h1 class="h3 mb-2 text-gray-800">마이페이지</h1>
+          <h1 class="h1 mb-2 text-gray-800">마이페이지</h1>
           <br><br>
 
           <!-- Content Row -->
@@ -29,9 +30,9 @@
               <div class="row mb-4" style="margin-left:4px;">
                 <div style="padding-right:20px; padding-bottom:20px"><img src="https://image.dongascience.com/Photo/2020/03/5bddba7b6574b95d37b6079c199d7101.jpg" alt="학생증명사진" width="180" height="220"></div>
                 <div>
-                  <h1 class="h4 mb-2 text-gray-700">학생정보</h1>
+                  <h1 class="h3 mb-2 text-gray-700">학생정보</h1>
                   <br>
-                  <h1 class="h5 mb-2 text-gray-600">단과대 / 학부 : 공학대학</h1>
+                  <h1 class="h5 mb-2 text-gray-600">단과대 / 학부 : 공과대학</h1>
                   <p></p>
                   <h1 class="h5 mb-2 text-gray-600">학과 : 컴퓨터공학과</h1>
                   <p></p>
@@ -50,12 +51,13 @@
                   </div>
                   <a href="{% url 'participate'%}">
                     <div style="float:right">
-                      <img src="{% static 'img/plus2.svg'%}" alt="플러스 기호" width="20" height="20">
+                      <span class="caret"></span>
+                      <img src="{% static 'img/icon (2).svg'%}" alt="더보기 기호" width="20" height="20">
                     </div>
                   </a>
                 </div>
                 <div class="card-body">
-                   <div>1. 20대 학생회 투표</div>
+                   <div>- &nbsp; 20대 학생회 투표</div>
                 </div>
               </div>
 
@@ -68,13 +70,13 @@
                   </div>
                   <a href="{% url 'completion-participate'%}">
                     <div style="float:right">
-                      <img src="{% static 'img/plus2.svg'%}" alt="플러스 기호" width="20" height="20">
+                      <img src="{% static 'img/icon (2).svg'%}" alt="더보기 기호" width="20" height="20">
                     </div>
                   </a>
                 </div>
                 <div class="card-body">
-                   <div>1. 과대 투표</div>
-                   <div>2. 리스트 항목</div>
+                   <div>- &nbsp; 과대 투표</div>
+                   <div>- &nbsp; 리스트 항목</div>
                 </div>
               </div>
 
@@ -93,7 +95,7 @@
           <div class="copyright text-center my-auto">
             <span>Copyright &copy; onetouch 2020</span>
             <br>
-            <span>TY SW SJ SH HJ</span>
+            <span> HJ SH SJ SW TY </span>
           </div>
         </div>
       </footer>

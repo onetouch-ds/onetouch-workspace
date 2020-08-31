@@ -1,5 +1,12 @@
 {% extends 'base.html' %}
 
+{% block head %}
+<style>
+  .btn.btn-user {
+    background : #0078dc;
+  }
+</style>
+{% endblock head%}
 
 {% block content %}
 <div id="content-wrapper" class="d-flex flex-column">
@@ -22,8 +29,8 @@
                       <p>3.</p>
                       <center> 
                       <!-- Button trigger modal -->
-                  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-                  투표하기
+                  <button type="button" class="btn btn-user text-white" data-toggle="modal" data-target="#exampleModal">
+                    투표하기
                   </button>
                   </center>
                   </div>
@@ -38,7 +45,7 @@
           <div class="copyright text-center my-auto">
             <span>Copyright &copy; onetouch 2020</span>
             <br>
-            <span>HY SW SJ HJ SH</span>
+            <span> HJ SH SJ SW TY </span>
           </div>
         </div>
       </footer>

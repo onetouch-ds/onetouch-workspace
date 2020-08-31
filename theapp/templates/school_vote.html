@@ -19,7 +19,7 @@
             <h1 class="h3 mb-0 text-gray-800">학교 투표</h1>
           </div>
 
-            {% for school_vote in school_votes %}
+          {% for school_vote in school_votes %}
               <!-- Content Row 투표 목록-->
               <div class="row">
                 <div class="card-body">
@@ -47,9 +47,9 @@
                     </div>
                     <div class="modal-body">
                       <p> 주의사항 </p>
-                      <p> 1. </p>
-                      <p> 2. </p>
-                      <p> 3. </p>
+                      <p> 1. &nbsp; 투표 전, 후보자의 공약을 확인하세요.</p>
+                      <p> 2. &nbsp; 투표 완료 시, 수정이 불가하므로 신중하게 투표해주세요.</p>
+                      <p> 3. &nbsp; 투표의 비밀은 반드시 보장되어야 합니다.</p>
                     </div>
                     <div class="modal-footer">
                       <button type="button" class="btn btn-secondary" data-dismiss="modal">취소</button>
@@ -85,7 +85,6 @@
                   {% else %}
                     <li class="page-item disabled"><span class="page-link">&raquo;</sapn></li>
                   {% endif %}
-
                 </ul>
 
               {% comment %} {% else %}  <!-- 다음 페이지가 없을 경우, 페이지 1 선택 효과와 이전 버튼과 다음 버튼 비활성화 -->
@@ -93,11 +92,11 @@
                   <li class = "page-item disabled"><span class="page-link">&laquo;</sapn></li>
                   <li class="page-item active"><a class="page-link" href="?page={{ 1 }}">{{ 1 }}<span class="sr-only">(current)</span></a></li>
                   <li class="page-item disabled"><span class="page-link">&raquo;</sapn></li>
-                </ul>  {% endcomment %}
+                </ul> {% endcomment %}
 
               {% endif %}
             </nav>
-    
+                  
         </div>
         </div>
         </div>
@@ -107,11 +106,13 @@
             <div class="container my-auto">
               <div class="copyright text-center my-auto">
                 <span>Copyright &copy; onetouch 2020</span>
+                <br>
+                <span> HJ SH SJ SW TY </span>
               </div>
             </div>
           </footer>
           <!-- End of Footer -->
         </div>
-        </div>
 
+        </div>
 {% endblock content %}
