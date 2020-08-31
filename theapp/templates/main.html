@@ -5,18 +5,22 @@
 <style>
   .carousel-item {
     height: 90vh;
-    min-height: 600px;
     background: no-repeat center center scroll;
     -webkit-background-size: cover;
-    -moz-background-size: cover;
+    -moz-background-size: cover; 
     -o-background-size: cover;
     background-size: cover
   }
 
+
   .my-vote-ok{
-    margin-top : 50px;
+    margin-top : 40px;
+    background-color: #0078dc;
+    border-color: #0078dc;
+    color: #FFF; 
   }
 </style>
+
 {% endblock head %}
 
 <!-- content 시작 -->
@@ -43,7 +47,7 @@
             <div class="carousel-item" style="background-image: url('../static/img/슬라이드2.PNG')" >
             </div>
             <!-- Slide Three - Set the background image for this slide in the line below -->
-            <div class="carousel-item" style="background-image: url('../static/img/슬라이드3.PNG')">
+             <div class="carousel-item" style="background-image: url('../static/img/슬라이드3.png')">
             </div>
           </div>
           <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
@@ -57,7 +61,7 @@
         </div>
 
         <div class="my-vote-ok">
-          <a href="{% url 'mypage'%}" class="btn btn-facebook btn-block" >나의 투표 확인하기</a>
+          <a href="{% url 'mypage'%}" class="btn btn-block text-white" > 나의 투표 확인하기</a>
         </div>
 
       </header>
@@ -69,9 +73,9 @@
       <footer class="sticky-footer bg-white">
         <div class="container my-auto">
           <div class="copyright text-center my-auto">
-            <span>Copyright &copy; onetouch 2020</span> 
+            <span>Copyright &copy; onetouch 2020</span>
             <br>
-            <span>HY SW SJ HJ SH</span>
+            <span> TY SW SJ HJ SH </span>
           </div>
         </div>
       </footer>
