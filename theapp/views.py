@@ -52,34 +52,102 @@ def mypage(requests):
 
 # 공지사항
 def notice(requests):
-    notice = Notice.objects
-    return render(requests, 'notice.html',{'notice':notice})
+    table_list = Notice.objects.all()
+    page = requests.GET.get('page', 1)
 
-# 공지사항 내용
-def notice_content(requests,pk):
-    notice = get_object_or_404(Notice,pk=pk)
-    return render(requests, 'notice_content.html',{'notice':notice})
+    paginator = Paginator(table_list, 10) # 한 페이지에 10 개씩 데이터를 보이게 해 줌
+    try:
+        tables = paginator.page(page)
+    except PageNotAnInteger:
+        tables = paginator.page(1)
+    except EmptyPage:
+        tables = paginator.page(paginator.num_pages)
+
+    page_numbers_range = 5
+
+    pageGroup = math.ceil(int(page) / page_numbers_range)
+    start_block = (pageGroup - 1) * page_numbers_range
+    end_block = start_block + page_numbers_range
+
+    paginator_range = paginator.page_range[start_block:end_block]
+
+    context = {
+        'tables' : tables,
+        'paginator_range' : paginator_range,
+    }
+
+    return render(requests, 'notice.html', context)
 
 # 투표에 관한 건의사항
 def suggest_vote(requests):
-    sgvote = SuggestVote.objects
-    return render(requests, 'suggest_vote.html',{'sgvote':sgvote})
+    suggest_vote_list = SuggestVote.objects.all()
+    paginator = Paginator(suggest_vote_list, 10) # 한 페이지에 10 개씩 데이터를 보이게 해 줌
+    page = requests.GET.get('page', 1)
+    try:
+        suggest_votes = paginator.page(page)
+    except PageNotAnInteger:
+        suggest_votes = paginator.page(1)
+    except EmptyPage:
+        suggest_votes = paginator.page(paginator.num_pages)
 
+    page_numbers_range = 5
+
+    pageGroup = math.ceil(int(page) / page_numbers_range)
+    start_block = (pageGroup - 1) * page_numbers_range
+    end_block = start_block + page_numbers_range
+
+    paginator_range = paginator.page_range[start_block:end_block]
+
+    context = {
+        'suggest_votes' : suggest_votes,
+        'paginator_range' : paginator_range,
+    }
+
+    return render(requests, 'suggest_vote.html', context)
 
 # 기타 건의사항
 def suggest_other(requests):
-    sgother = SuggestOther.objects
-    return render(requests, 'suggest_other.html',{'sgother':sgother})
+    suggest_ohter_list = SuggestOther.objects.all()
+    paginator = Paginator(suggest_ohter_list, 10) # 한 페이지에 10 개씩 데이터를 보이게 해 줌
+    page = requests.GET.get('page', 1)
+
+    try:
+        suggest_others = paginator.page(page)
+    except PageNotAnInteger:
+        suggest_others = paginator.page(1)
+    except EmptyPage:
+        suggest_others = paginator.page(paginator.num_pages)
+
+    page_numbers_range = 5
+
+    pageGroup = math.ceil(int(page) / page_numbers_range)
+    start_block = (pageGroup - 1) * page_numbers_range
+    end_block = start_block + page_numbers_range
+
+    paginator_range = paginator.page_range[start_block:end_block]
+
+    context = {
+        'suggest_others' : suggest_others,
+        'paginator_range' : paginator_range,
+    }
+
+    return render(requests, 'suggest_other.html', context)
+
+
+# 공지사항 내용
+def notice_content(requests,pk):
+    notice = get_object_or_404(Notice, pk=pk)
+    return render(requests, 'notice_content.html', {'notice':notice})
 
 # 투표 건의사항 내용
 def suggest_vote_content(requests,pk):
-    sgvote = get_object_or_404(SuggestVote,pk=pk)
-    return render(requests, 'suggest_vote_content.html',{'sgvote':sgvote}) 
+    sgvote = get_object_or_404(SuggestVote, pk=pk)
+    return render(requests, 'suggest_vote_content.html', {'sgvote':sgvote}) 
 
 # 기타 건의사항 내용
 def suggest_other_content(requests,pk):
-    sgother = get_object_or_404(SuggestOther,pk=pk)
-    return render(requests, 'suggest_other_content.html',{'sgother':sgother})           
+    sgother = get_object_or_404(SuggestOther, pk=pk)
+    return render(requests, 'suggest_other_content.html', {'sgother':sgother})           
 
  #건의사항 작성 투표
 def new_suggest_vote(requests):
@@ -127,32 +195,105 @@ def completion_participate_dept(requests):
 
 # 학교 투표 페이지
 def school_vote(requests):
-    return render(requests,'school_vote.html')
+    school_vote_list = SchoolVote.objects.all()
+    paginator = Paginator(school_vote_list, 3) # 한 페이지에 3 개씩 데이터를 보이게 해 줌
+    page = requests.GET.get('page', 1)
+
+    try:
+        school_votes = paginator.page(page)
+    except PageNotAnInteger:
+        school_votes = paginator.page(1)
+    except EmptyPage:
+        school_votes = paginator.page(paginator.num_pages)
+
+    page_numbers_range = 5
+
+    pageGroup = math.ceil(int(page) / page_numbers_range)
+    start_block = (pageGroup - 1) * page_numbers_range
+    end_block = start_block + page_numbers_range
+
+    paginator_range = paginator.page_range[start_block:end_block]
+
+    context = {
+        'school_votes' : school_votes,
+        'paginator_range' : paginator_range,
+    }
+
+    return render(requests, 'school_vote.html', context)
 
 # 단과대/학부 투표 페이지
 def college_vote(requests):
-    return render(requests, 'college_vote.html')
+    undergraduate_vote_list = UndergraduateVote.objects.all()
+    paginator = Paginator(undergraduate_vote_list, 3) # 한 페이지에 3 개씩 데이터를 보이게 해 줌
+    page = requests.GET.get('page', 1)
+
+    try:
+        undergraduate_votes = paginator.page(page)
+    except PageNotAnInteger:
+        undergraduate_votes = paginator.page(1)
+    except EmptyPage:
+        undergraduate_votes = paginator.page(paginator.num_pages)
+
+    page_numbers_range = 5
+
+    pageGroup = math.ceil(int(page) / page_numbers_range)
+    start_block = (pageGroup - 1) * page_numbers_range
+    end_block = start_block + page_numbers_range
+
+    paginator_range = paginator.page_range[start_block:end_block]
+
+    context = {
+        'undergraduate_votes' : undergraduate_votes,
+        'paginator_range' : paginator_range,
+    }
+
+    return render(requests, 'college_vote.html', context)
 
 # 학과 투표 페이지
 def department_vote(requests):
-    dept_vote = MajorVote.objects
-    return render(requests, 'department_vote.html',{'dept_vote':dept_vote})
+    major_vote_list = MajorVote.objects.all()
+    paginator = Paginator(major_vote_list, 3) # 한 페이지에 3 개씩 데이터를 보이게 해 줌
+    page = requests.GET.get('page', 1)
+
+    try:
+        major_votes = paginator.page(page)
+    except PageNotAnInteger:
+        major_votes = paginator.page(1)
+    except EmptyPage:
+        major_votes = paginator.page(paginator.num_pages)
+
+    page_numbers_range = 5
+
+    pageGroup = math.ceil(int(page) / page_numbers_range)
+    start_block = (pageGroup - 1) * page_numbers_range
+    end_block = start_block + page_numbers_range
+
+    paginator_range = paginator.page_range[start_block:end_block]
+
+    context = {
+        'major_votes' : major_votes,
+        'paginator_range' : paginator_range,
+    }
+
+    return render(requests, 'department_vote.html', context)
 
 # 투표 만들기 페이지
 def make_vote(requests):
     return render(requests, 'make_vote.html')
 
 # 학교-투표하기 페이지
-def school_voting(requests):
-    return render(requests, 'school-voting.html')
+def school_voting(requests, pk):
+    school_vote = get_object_or_404(SchoolVote, pk=pk)
+    return render(requests, 'school-voting.html', {'school_vote':school_vote})
 
 # 학교-공약 페이지
 def school_pledge(requests):
     return render(requests, 'school-pledge.html')
 
 # 학부-투표하기 페이지
-def college_voting(requests):
-    return render(requests, 'college-voting.html')
+def college_voting(requests, pk):
+    undergraduate_vote = get_object_or_404(UndergraduateVote, pk=pk)
+    return render(requests, 'college-voting.html', {'undergraduate_vote':undergraduate_vote})
 
 # 학부-공약 페이지
 def college_pledge(requests):
@@ -160,8 +301,8 @@ def college_pledge(requests):
 
 # 학과-투표하기 페이지
 def department_voting(requests, pk):
-    dept_vote = get_object_or_404(MajorVote,pk=pk)
-    return render(requests, 'department-voting.html',{'dept_vote':dept_vote})
+    dept_vote = get_object_or_404(MajorVote, pk=pk)
+    return render(requests, 'department-voting.html', {'dept_vote':dept_vote})
 
 # 학과-공약 페이지
 def department_pledge(requests):
@@ -174,5 +315,3 @@ def result(requests):
 # 새로 만든 로그인 페이지
 def login_new(requests):
     return render(requests, 'login_new.html')
-
-#주석
