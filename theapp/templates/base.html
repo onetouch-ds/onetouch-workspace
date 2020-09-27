@@ -29,7 +29,15 @@
 
   <style>
   .bg-gradient-primary{
-    background : #e2e5ee;
+    background : #555b6e;
+  }
+
+  .btn.btn-user {
+    background : #0078dc;
+  } 
+
+  .navbar-nav .nav-item a:hover {
+      background: #89b0ae;
   }
   </style>
 
@@ -55,13 +63,13 @@
       <li class="nav-item active">
         <a class="nav-link" href="{% url 'mypage'%}">    <!--링크 마이페이지로 바꾸기-->
           <center><img class="img-profile rounded-circle" src="https://source.unsplash.com/QAB-WJcbgJk/60x60"></center>
-          <center><span class="mr-2 d-none d-lg-inline text-gray-900 small">Valerie Luna</span></center>
+          <center><span class="mr-2 d-none d-lg-inline text-white-900 small">Valerie Luna</span></center>
           </a>
       </li>
       <center>
-        <button data-toggle="modal" data-target="#exampleModallogout" class="btn btn-primary btn-icon-split">
-                <span class="text">Logout</span>
-            </button>
+        <button data-toggle="modal" data-target="#exampleModallogout" class="btn btn-icon-split btn-user text-white">
+            <span class="text">Logout</span>
+          </button>
         </center>
         <br>
       
@@ -72,7 +80,7 @@
 
       <!-- Nav Item - 마이페이지 -->
        <li class="nav-item">
-        <a class="nav-link text-gray-900" href="{% url 'mypage'%}">
+        <a class="nav-link text-white-900" data-toggle="tab-hover" href="{% url 'mypage'%}">
           <span>마이페이지</span></a>
       </li>
 
@@ -81,7 +89,7 @@
 
       <!-- Nav Item - 공지 -->
         <li class="nav-item">
-        <a class="nav-link text-gray-900" href="{% url 'notice'%}">
+        <a class="nav-link text-white-900" href="{% url 'notice'%}">
           <span>공지사항</span></a>
       </li>
 
@@ -91,7 +99,7 @@
 
       <!-- Nav Item - 투표 -->
       <li class="nav-item">
-        <a class="nav-link collapsed text-gray-900" href="#" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
+        <a class="nav-link collapsed text-white-900" href="#" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
           <span>투표</span>
         </a>
         <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
@@ -99,7 +107,6 @@
             <a class="collapse-item" href="{% url 'school-vote'%}">학교</a>   <!-- 링크 연결 페이지 바꾸기-->
             <a class="collapse-item" href="{% url 'college-vote'%}">학부 / 단과대</a>
             <a class="collapse-item" href="{% url 'department-vote'%}">학과</a>
-            <a class="collapse-item" href="{% url 'make-vote'%}">투표 만들기</a>
           </div>
         </div>
       </li>
@@ -109,7 +116,7 @@
 
       <!-- Nav Item - 건의 -->
       <li class="nav-item">
-        <a class="nav-link collapsed text-gray-900" href="#" data-toggle="collapse" data-target="#collapsePages2" aria-expanded="true" aria-controls="collapsePages2">
+        <a class="nav-link collapsed text-white-900" href="#" data-toggle="collapse" data-target="#collapsePages2" aria-expanded="true" aria-controls="collapsePages2">
           <span>건의</span>
         </a>
         <div id="collapsePages2" class="collapse" aria-labelledby="headingPages2" data-parent="#accordionSidebar">
@@ -147,7 +154,7 @@
             로그아웃 되었습니다.
           </div>
           <div class="modal-footer">
-            <a href = "{% url 'login-new'%}"><button type="button" class="btn btn-primary">확인</button></a>
+            <a href = "{% url 'login-new'%}"><button type="button" class="btn text-white">확인</button></a>
           </div>
         </div>
       </div>

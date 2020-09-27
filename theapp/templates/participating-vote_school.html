@@ -105,6 +105,8 @@
         <div class="container my-auto">
           <div class="copyright text-center my-auto">
             <span>Copyright &copy; onetouch 2020</span>
+            <br>
+            <span>TY SW SJ SH HJ</span>
           </div>
         </div>
       </footer>
@@ -131,8 +133,8 @@
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">취소</button>
-                <a href="{%url 'school-voting'%}"><button type="button" class="btn btn-primary">동의합니다.</button></a>
-              </div>
+                <a {% comment %} href="{%url 'school-voting'%}"{%endcomment%}><button type="button" class="btn btn-primary">동의합니다.</button></a>
+              </div> <!-- 오류로 인한 데이터 처리 - 회원 정보 연동 후 수정 필요 -->
             </div>
           </div>
         </div>
