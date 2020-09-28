@@ -1,4 +1,5 @@
 {% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -51,23 +52,31 @@
                         <img class="duksung-login-logo" src="{% static 'img/duksung_login_logo.png'%}" alt="duksung-logo-login" width="280" height="90">
                     </h1>
                   </div>
-                  <form class="user">
+                  <form method="POST" action="{%url 'login-new' %}">
+                      {% csrf_token %}
                     <div class="form-group">
-                      <input type="email" class="form-control form-control-user" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Username">
+                      <input name="username" type="text" value="" class="form-control form-control-user" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Username">
                     </div>
                     <div class="form-group">
-                      <input type="password" class="form-control form-control-user" id="exampleInputPassword" placeholder="Password">
+                      <input name="password" type="password" class="form-control form-control-user" id="exampleInputPassword" placeholder="Password">
                     </div>
                     <div class="form-group">
-                      <div class="custom-control custom-checkbox small">
+                      <!--<div class="custom-control custom-checkbox small">
                         <input type="checkbox" class="custom-control-input" id="customCheck">
-                        <label class="custom-control-label" for="customCheck">Remember Me</label>
-                      </div>
+                        <label class="custom-control-label" for="customCheck">Remember Me</label>-->
+                         <a href="{% url 'signup' %}">
+                              <button type="button" id='btn_signup' class="btn btn-user btn-block1 text-white" style="float:right;">
+                                  Signup
+                              </button>
+                          </a>
+                      <!--</div>-->
+                     
                     </div>
-                    <a href="{% url 'main'%}" class="btn btn-user btn-block text-white">
-                      Login
-                    </a>
+                      
+                      <br><br><br>
+                    <input type="submit" value="Login" class="btn btn-user btn-block text-white">
                   </form>
+                  
                 </div>
               </div>
             </div>

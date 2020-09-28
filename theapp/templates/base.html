@@ -63,13 +63,21 @@
       <li class="nav-item active">
         <a class="nav-link" href="{% url 'mypage'%}">    <!--링크 마이페이지로 바꾸기-->
           <center><img class="img-profile rounded-circle" src="https://source.unsplash.com/QAB-WJcbgJk/60x60"></center>
-          <center><span class="mr-2 d-none d-lg-inline text-white-900 small">Valerie Luna</span></center>
+          {% if request.user.is_authenticated %}
+          <center><span class="mr-2 d-none d-lg-inline text-white-900 small">{{ user.username }}</span></center>
+          {%endif%}
           </a>
       </li>
       <center>
+      <a href="javascript:{document.getElementById('logout').submit()}">Logout</a>
+        <form id="logout" method="POST" action="{% url 'logout' %}">
+            {% csrf_token %} <input type="hidden" />
+        </form>
+      <!--
         <button data-toggle="modal" data-target="#exampleModallogout" class="btn btn-icon-split btn-user text-white">
             <span class="text">Logout</span>
           </button>
+      -->
         </center>
         <br>
       
@@ -107,7 +115,6 @@
             <a class="collapse-item" href="{% url 'school-vote'%}">학교</a>   <!-- 링크 연결 페이지 바꾸기-->
             <a class="collapse-item" href="{% url 'college-vote'%}">학부 / 단과대</a>
             <a class="collapse-item" href="{% url 'department-vote'%}">학과</a>
-            <a class="collapse-item" href="{% url 'make-vote'%}">투표 만들기</a>
           </div>
         </div>
       </li>
