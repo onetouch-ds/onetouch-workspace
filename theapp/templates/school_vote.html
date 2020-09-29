@@ -1,10 +1,6 @@
 {% extends 'base.html' %}
 {% block head %}
-<style>
-.pagination {
-    justify-content: center;
-}
-</style>
+
 
 
 {% endblock head%}
@@ -24,8 +20,8 @@
               <div class="row">
                 <div class="card-body">
                   <h4 class="large font-weight-bold">{{ school_vote.sh_vt_name }}
-                    <!-- Button trigger modal -->
-                    <a data-toggle="modal" data-target="#exampleModalScrollable" class="float-right"><span class="text-primary">투표하기</span> </a> <!-- 투표 화면 링크 추가-->
+                    <!-- Button trigger modal --> <!-- data-toggle="modal" data-target="#exampleModalScrollable" 이거 삭제-->
+                    <a href="{%url 'school-voting' school_vote.sh_vt_pk %}"  class="float-right" ><span class="text-primary">투표하기</span> </a> <!-- 투표 화면 링크 추가-->
                   </h4>
                   <h5 class="large font-weight-bold">{{ school_vote.sh_vt_dday }}</h5>
                   <div class="progress mb-4">
@@ -34,7 +30,7 @@
                 </div>
               </div>    
               <br>       
-
+              
               <!-- Modal -->
               <div class="modal fade" id="exampleModalScrollable" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-scrollable" role="document">

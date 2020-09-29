@@ -139,13 +139,15 @@ class MajorVote(models.Model):
     mj_category2 = models.CharField(max_length=45, blank=True, null=True)
     mj_category3 = models.CharField(max_length=45, blank=True, null=True)
     mj_category4 = models.CharField(max_length=45, blank=True, null=True)
-    mj_category5 = models.CharField(max_length=45, blank=True, null=True)
     mj_vt_result1 = models.CharField(max_length=45, blank=True, null=True)
     mj_vt_result2 = models.CharField(max_length=45, blank=True, null=True)
     mj_vt_result3 = models.CharField(max_length=45, blank=True, null=True)
     mj_vt_result4 = models.CharField(max_length=45, blank=True, null=True)
-    mj_vt_result5 = models.CharField(max_length=45, blank=True, null=True)
     mj_final_result = models.CharField(max_length=45, blank=True, null=True)
+    mj_promise1 = models.CharField(max_length=45, blank=True, null=True)
+    mj_promise2 = models.CharField(max_length=45, blank=True, null=True)
+    mj_promise3 = models.CharField(max_length=45, blank=True, null=True)
+    mj_promise4 = models.CharField(max_length=45, blank=True, null=True)
 
     def __str__(self):
         return self.mj_vt_name
@@ -195,13 +197,15 @@ class SchoolVote(models.Model):
     sh_category2 = models.CharField(max_length=45, blank=True, null=True)
     sh_category3 = models.CharField(max_length=45, blank=True, null=True)
     sh_category4 = models.CharField(max_length=45, blank=True, null=True)
-    sh_category5 = models.CharField(max_length=45, blank=True, null=True)
     sh_vt_result1 = models.CharField(max_length=45, blank=True, null=True)
     sh_vt_result2 = models.CharField(max_length=45, blank=True, null=True)
     sh_vt_result3 = models.CharField(max_length=45, blank=True, null=True)
     sh_vt_result4 = models.CharField(max_length=45, blank=True, null=True)
-    sh_vt_result5 = models.CharField(max_length=45, blank=True, null=True)
     sh_final_result = models.CharField(max_length=45, blank=True, null=True)
+    sh_promise1 = models.CharField(max_length=45, blank=True, null=True)
+    sh_promise2 = models.CharField(max_length=45, blank=True, null=True)
+    sh_promise3 = models.CharField(max_length=45, blank=True, null=True)
+    sh_promise4 = models.CharField(max_length=45, blank=True, null=True)
 
     def __str__(self):
         return self.sh_vt_name
@@ -251,13 +255,15 @@ class UndergraduateVote(models.Model):
     ud_category2 = models.CharField(max_length=45, blank=True, null=True)
     ud_category3 = models.CharField(max_length=45, blank=True, null=True)
     ud_category4 = models.CharField(max_length=45, blank=True, null=True)
-    ud_category5 = models.CharField(max_length=45, blank=True, null=True)
     ud_vt_result1 = models.CharField(max_length=45, blank=True, null=True)
     ud_vt_result2 = models.CharField(max_length=45, blank=True, null=True)
     ud_vt_result3 = models.CharField(max_length=45, blank=True, null=True)
     ud_vt_result4 = models.CharField(max_length=45, blank=True, null=True)
-    ud_vt_result5 = models.CharField(max_length=45, blank=True, null=True)
     ud_final_result = models.CharField(max_length=45, blank=True, null=True)
+    ud_promise1 = models.CharField(max_length=45, blank=True, null=True)
+    ud_promise2 = models.CharField(max_length=45, blank=True, null=True)
+    ud_promise3 = models.CharField(max_length=45, blank=True, null=True)
+    ud_promise4 = models.CharField(max_length=45, blank=True, null=True)
 
     def __str__(self):
         return self.ud_vt_name
