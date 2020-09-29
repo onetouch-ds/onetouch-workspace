@@ -220,7 +220,7 @@ class SuggestOther(models.Model):
     sgother_title = models.CharField(max_length=45)
     sgother_writer = models.CharField(max_length=45)
     sgother_count = models.IntegerField(blank=True, null=True)
-    sgother_updateday = models.DateField()
+    sgother_updateday = models.DateField(auto_now_add=True)
     sgother_content = models.TextField(blank=True, null=True)
 
     def __str__(self):
@@ -236,7 +236,7 @@ class SuggestVote(models.Model):
     sgvote_title = models.CharField(max_length=45)
     sgvote_writer = models.CharField(max_length=45)
     sgvote_count = models.IntegerField(blank=True, null=True)
-    sgvote_updateday = models.DateField()
+    sgvote_updateday = models.DateField(auto_now_add=True)
     sgvote_content = models.TextField(blank=True, null=True)
 
     def __str__(self):
@@ -281,3 +281,11 @@ class VoteList(models.Model):
     class Meta:
         managed = False
         db_table = 'vote_list'
+
+# class Post(models.Model):
+#     title = models.CharField(max_length=45)
+#     author =  models.CharField(max_length=45)
+#     body = models.TextField()
+#     date = models.DateTimeField(auto_now_add=True)
+
+
