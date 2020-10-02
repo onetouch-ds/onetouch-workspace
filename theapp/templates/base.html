@@ -64,7 +64,7 @@
         <a class="nav-link" href="{% url 'mypage'%}">    <!--링크 마이페이지로 바꾸기-->
           <center><img class="img-profile rounded-circle" src="https://source.unsplash.com/QAB-WJcbgJk/60x60"></center>
           {% if request.user.is_authenticated %}
-          <center><span class="mr-2 d-none d-lg-inline text-white-900 small">{{ user.username }}</span></center>
+          <center><span class="mr-2 d-none d-lg-inline text-white-900 small">  {{ user.username }}</span></center>
           {%endif%}
           </a>
       </li>
