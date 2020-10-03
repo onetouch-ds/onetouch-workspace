@@ -13,3 +13,4 @@ admin.site.register(VoteList)#모든 투표 합쳐놓은 것
 admin.site.register(Notice)#공지
 admin.site.register(SuggestVote)#투표 건의
 admin.site.register(SuggestOther)#기타 건의
+

@@ -2,6 +2,7 @@ from django.shortcuts import render, get_object_or_404, redirect
 from .models import *
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 import math
+from .forms import *
 from django.contrib.auth.models import User
 from django.contrib import auth
 
@@ -154,11 +155,25 @@ def suggest_other_content(requests,pk):
 
  #건의사항 작성 투표
 def new_suggest_vote(requests):
-    return render(requests, 'new_suggest_vote.html')   
+    if requests.method =='POST':
+        form = SuggestVoteForm(requests.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('suggest-vote')
+    else:
+        form = SuggestVoteForm()
+    return render(requests, 'new_suggest_vote.html', {'form':form})  
 
  #건의사항 작성 기타
 def new_suggest_other(requests):
-    return render(requests, 'new_suggest_other.html')     
+    if requests.method =='POST':
+        form = SuggestOtherForm(requests.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('suggest-other')
+    else:
+        form = SuggestOtherForm()
+    return render(requests, 'new_suggest_other.html', {'form':form})     
 
 # 메인 페이지
 def main(requests):
