@@ -6,6 +6,8 @@
 #   * Remove `managed = False` lines if you wish to allow Django to create, modify, and delete the table
 # Feel free to rename the models, but don't rename db_table values or field names.
 from django.db import models
+from datetime import datetime
+
 
 # Create your models here.
 
@@ -193,6 +195,7 @@ class SchoolVote(models.Model):
     sh_vt_pk = models.IntegerField(primary_key=True)
     sh_vt_name = models.CharField(max_length=45)
     sh_vt_dday = models.DateField()
+    date = datetime.today()
     sh_category1 = models.CharField(max_length=45, blank=True, null=True)
     sh_category2 = models.CharField(max_length=45, blank=True, null=True)
     sh_category3 = models.CharField(max_length=45, blank=True, null=True)
@@ -206,6 +209,7 @@ class SchoolVote(models.Model):
     sh_promise2 = models.CharField(max_length=45, blank=True, null=True)
     sh_promise3 = models.CharField(max_length=45, blank=True, null=True)
     sh_promise4 = models.CharField(max_length=45, blank=True, null=True)
+    
 
     def __str__(self):
         return self.sh_vt_name
