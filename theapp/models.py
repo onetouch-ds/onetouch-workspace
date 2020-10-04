@@ -10,6 +10,17 @@ from datetime import datetime
 
 
 # Create your models here.
+# Profile 추가 (회원가입시 추가 기입 사항)
+from django.contrib.auth.models import User
+
+class Profile(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    college = models.CharField(max_length=50, blank=True)
+    major = models.CharField(max_length=50, blank=True)
+    student_id = models.TextField(max_length=50, blank=True)
+
+
+
 
 class AuthGroup(models.Model):
     name = models.CharField(unique=True, max_length=150)

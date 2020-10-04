@@ -356,8 +356,16 @@ def signup(request):
         if request.POST['password1'] == request.POST['password2']:   # 입력한 비밀번호와 비밀번호 확인 부분이 같은지 확인
             user = User.objects.create_user(    # 유저 생성하는 함수
                 request.POST['username'],   # 입력 받은 유저이름
-                password = request.POST['password1']    # 입력 받은 패스워드
+                password = request.POST['password1'],    # 입력 받은 패스워드
+                email = request.POST['email'],
+                first_name = request.POST['first_name'],
+                last_name = request.POST['last_name']
             )
+            college = request.POST["college"]
+            major = request.POST["major"]
+            student_id = request.POST["student_id"]
+            profile = Profile(user=user, college=college, major=major, student_id=student_id)
+            profile.save()
             auth.login(request, user, backend='django.contrib.auth.backends.ModelBackend')   # 그 계정에 로그인을 하라는 요청을 다시 보냄
             return redirect('main')     # 메인으로 사용자가 갈 수 있게 리턴함
     return render(request, 'signup.html')   # 요청 방식이 POST가 아니라면 회원가입 페이지에 머무름
