@@ -6,6 +6,8 @@
 #   * Remove `managed = False` lines if you wish to allow Django to create, modify, and delete the table
 # Feel free to rename the models, but don't rename db_table values or field names.
 from django.db import models
+from datetime import datetime
+
 
 # Create your models here.
 # Profile 추가 (회원가입시 추가 기입 사항)
@@ -150,13 +152,15 @@ class MajorVote(models.Model):
     mj_category2 = models.CharField(max_length=45, blank=True, null=True)
     mj_category3 = models.CharField(max_length=45, blank=True, null=True)
     mj_category4 = models.CharField(max_length=45, blank=True, null=True)
-    mj_category5 = models.CharField(max_length=45, blank=True, null=True)
     mj_vt_result1 = models.CharField(max_length=45, blank=True, null=True)
     mj_vt_result2 = models.CharField(max_length=45, blank=True, null=True)
     mj_vt_result3 = models.CharField(max_length=45, blank=True, null=True)
     mj_vt_result4 = models.CharField(max_length=45, blank=True, null=True)
-    mj_vt_result5 = models.CharField(max_length=45, blank=True, null=True)
     mj_final_result = models.CharField(max_length=45, blank=True, null=True)
+    mj_promise1 = models.CharField(max_length=45, blank=True, null=True)
+    mj_promise2 = models.CharField(max_length=45, blank=True, null=True)
+    mj_promise3 = models.CharField(max_length=45, blank=True, null=True)
+    mj_promise4 = models.CharField(max_length=45, blank=True, null=True)
 
     def __str__(self):
         return self.mj_vt_name
@@ -202,17 +206,21 @@ class SchoolVote(models.Model):
     sh_vt_pk = models.IntegerField(primary_key=True)
     sh_vt_name = models.CharField(max_length=45)
     sh_vt_dday = models.DateField()
+    date = datetime.today()
     sh_category1 = models.CharField(max_length=45, blank=True, null=True)
     sh_category2 = models.CharField(max_length=45, blank=True, null=True)
     sh_category3 = models.CharField(max_length=45, blank=True, null=True)
     sh_category4 = models.CharField(max_length=45, blank=True, null=True)
-    sh_category5 = models.CharField(max_length=45, blank=True, null=True)
     sh_vt_result1 = models.CharField(max_length=45, blank=True, null=True)
     sh_vt_result2 = models.CharField(max_length=45, blank=True, null=True)
     sh_vt_result3 = models.CharField(max_length=45, blank=True, null=True)
     sh_vt_result4 = models.CharField(max_length=45, blank=True, null=True)
-    sh_vt_result5 = models.CharField(max_length=45, blank=True, null=True)
     sh_final_result = models.CharField(max_length=45, blank=True, null=True)
+    sh_promise1 = models.CharField(max_length=45, blank=True, null=True)
+    sh_promise2 = models.CharField(max_length=45, blank=True, null=True)
+    sh_promise3 = models.CharField(max_length=45, blank=True, null=True)
+    sh_promise4 = models.CharField(max_length=45, blank=True, null=True)
+    
 
     def __str__(self):
         return self.sh_vt_name
@@ -227,7 +235,7 @@ class SuggestOther(models.Model):
     sgother_title = models.CharField(max_length=45)
     sgother_writer = models.CharField(max_length=45)
     sgother_count = models.IntegerField(blank=True, null=True)
-    sgother_updateday = models.DateField()
+    sgother_updateday = models.DateField(auto_now_add=True)
     sgother_content = models.TextField(blank=True, null=True)
 
     def __str__(self):
@@ -243,7 +251,7 @@ class SuggestVote(models.Model):
     sgvote_title = models.CharField(max_length=45)
     sgvote_writer = models.CharField(max_length=45)
     sgvote_count = models.IntegerField(blank=True, null=True)
-    sgvote_updateday = models.DateField()
+    sgvote_updateday = models.DateField(auto_now_add=True)
     sgvote_content = models.TextField(blank=True, null=True)
 
     def __str__(self):
@@ -262,13 +270,15 @@ class UndergraduateVote(models.Model):
     ud_category2 = models.CharField(max_length=45, blank=True, null=True)
     ud_category3 = models.CharField(max_length=45, blank=True, null=True)
     ud_category4 = models.CharField(max_length=45, blank=True, null=True)
-    ud_category5 = models.CharField(max_length=45, blank=True, null=True)
     ud_vt_result1 = models.CharField(max_length=45, blank=True, null=True)
     ud_vt_result2 = models.CharField(max_length=45, blank=True, null=True)
     ud_vt_result3 = models.CharField(max_length=45, blank=True, null=True)
     ud_vt_result4 = models.CharField(max_length=45, blank=True, null=True)
-    ud_vt_result5 = models.CharField(max_length=45, blank=True, null=True)
     ud_final_result = models.CharField(max_length=45, blank=True, null=True)
+    ud_promise1 = models.CharField(max_length=45, blank=True, null=True)
+    ud_promise2 = models.CharField(max_length=45, blank=True, null=True)
+    ud_promise3 = models.CharField(max_length=45, blank=True, null=True)
+    ud_promise4 = models.CharField(max_length=45, blank=True, null=True)
 
     def __str__(self):
         return self.ud_vt_name
@@ -286,3 +296,11 @@ class VoteList(models.Model):
     class Meta:
         managed = False
         db_table = 'vote_list'
+
+# class Post(models.Model):
+#     title = models.CharField(max_length=45)
+#     author =  models.CharField(max_length=45)
+#     body = models.TextField()
+#     date = models.DateTimeField(auto_now_add=True)
+
+

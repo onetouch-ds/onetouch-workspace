@@ -2,8 +2,10 @@ from django.shortcuts import render, get_object_or_404, redirect
 from .models import *
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 import math
+from .forms import *
 from django.contrib.auth.models import User
 from django.contrib import auth
+
 
 # Create your views here.
 def index(requests):
@@ -153,11 +155,25 @@ def suggest_other_content(requests,pk):
 
  #건의사항 작성 투표
 def new_suggest_vote(requests):
-    return render(requests, 'new_suggest_vote.html')   
+    if requests.method =='POST':
+        form = SuggestVoteForm(requests.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('suggest-vote')
+    else:
+        form = SuggestVoteForm()
+    return render(requests, 'new_suggest_vote.html', {'form':form})  
 
  #건의사항 작성 기타
 def new_suggest_other(requests):
-    return render(requests, 'new_suggest_other.html')     
+    if requests.method =='POST':
+        form = SuggestOtherForm(requests.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('suggest-other')
+    else:
+        form = SuggestOtherForm()
+    return render(requests, 'new_suggest_other.html', {'form':form})     
 
 # 메인 페이지
 def main(requests):
@@ -198,6 +214,8 @@ def completion_participate_dept(requests):
 # 학교 투표 페이지
 def school_vote(requests):
     school_vote_list = SchoolVote.objects.all()
+
+
     paginator = Paginator(school_vote_list, 3) # 한 페이지에 3 개씩 데이터를 보이게 해 줌
     page = requests.GET.get('page', 1)
 
@@ -287,6 +305,10 @@ def make_vote(requests):
 def school_voting(requests, pk):
     school_vote = get_object_or_404(SchoolVote, pk=pk)
     return render(requests, 'school-voting.html', {'school_vote':school_vote})
+
+def school_result(requests, pk):
+    school_vote = get_object_or_404(SchoolVote, pk=pk)
+    return render(requests, 'school-result.html',{'school_vote':school_vote})
 
 # 학교-공약 페이지
 def school_pledge(requests):
