@@ -24,10 +24,10 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY','tp)v$pwn2xk2##ugsap(*z-gdkm*ri57wx5^p(tnr!59nqosj*')
+SECRET_KEY = 'tp)v$pwn2xk2##ugsap(*z-gdkm*ri57wx5^p(tnr!59nqosj*'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = []
 
@@ -89,7 +89,6 @@ DATABASES = {
         'HOST' : config['DATABASE']['HOST'],
         'PORT' : config['DATABASE']['PORT'],
         'OPTIONS' : { 'init_command': "SET sql_mode='STRICT_TRANS_TABLES'" },
-        'CONN_MAX_AGE' : 500,
     }
 }
 
@@ -135,5 +134,3 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
-
-django_heroku.settings(locals())
