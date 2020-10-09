@@ -181,35 +181,59 @@ def main(requests):
 
 # 참여 가능한 투표 페이지
 def participate(requests):
-    return render(requests, 'participating-vote.html')
+    school_vote=SchoolVote.objects.all()
+    college_vote=UndergraduateVote.objects.all()
+    major_vote=MajorVote.objects.all()
+
+    context={
+        'school_vote':school_vote,
+        'college_vote':college_vote,
+        'major_vote':major_vote,
+    }
+    return render(requests, 'participating-vote.html',context)
 
 #참여 가능한 투표 페이지 -학교
 def participate_school(requests):
-    return render(requests, 'participating-vote_school.html')
+    school_vote=SchoolVote.objects.all()
+    return render(requests, 'participating-vote_school.html',{'school_vote':school_vote})
 
 #참여 가능한 투표 페이지 -학부
 def participate_college(requests):
-    return render(requests, 'participating-vote_college.html')   
+    college_vote=UndergraduateVote.objects.all()
+    return render(requests, 'participating-vote_college.html',{'college_vote':college_vote})   
 
-#참여 가능한 투표 페이지 -학고
+#참여 가능한 투표 페이지 -학과
 def participate_dept(requests):
-    return render(requests, 'participating-vote_dept.html')       
+    major_vote=MajorVote.objects.all()
+    return render(requests, 'participating-vote_dept.html',{'major_vote':major_vote})       
 
 # 참여 완료한 투표 페이지
 def completion_participate(requests):
-    return render(requests, 'completion-participating.html')
+    school_vote=SchoolVote.objects.all()
+    college_vote=UndergraduateVote.objects.all()
+    major_vote=MajorVote.objects.all()
+
+    context={
+        'school_vote':school_vote,
+        'college_vote':college_vote,
+        'major_vote':major_vote,
+    }
+    return render(requests, 'completion-participating.html',context)
 
 # 참여 완료한 투표 페이지-학교
 def completion_participate_school(requests):
-    return render(requests, 'completion-participating_school.html')
+    school_vote=SchoolVote.objects.all()
+    return render(requests, 'completion-participating_school.html',{'school_vote':school_vote})
 
 # 참여 완료한 투표 페이지-학부
 def completion_participate_college(requests):
-    return render(requests, 'completion-participating_college.html')
+    college_vote=UndergraduateVote.objects.all()
+    return render(requests, 'completion-participating_college.html',{'college_vote':college_vote})
 
 # 참여 완료한 투표 페이지-학과
 def completion_participate_dept(requests):
-    return render(requests, 'completion-participating_dept.html')
+    major_vote=MajorVote.objects.all()
+    return render(requests, 'completion-participating_dept.html',{'major_vote':major_vote})
 
 # 학교 투표 페이지
 def school_vote(requests):
