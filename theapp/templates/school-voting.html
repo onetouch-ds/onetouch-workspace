@@ -2,9 +2,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Bootstrap 4</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
-
+    {% block head %}
+      <style>
+      .mybackground{
+        background-color: #F8F9FC;
+        border-radius : 10px;
+        border-color : #BFC0C9;
+        padding:10px;
+        border-style : solid;
+      }
+    </style>
+    {% endblock head %}
+    
 {% block content %}
-<!-- 제가 school_vote.html에 있는 modal을 페이지 로드 하자마자 뜨게하는 법을 모르겠어서 일단 갖고왔습니다..예..-->
+<!-- 제가 school_vote.html에 있는 modal을 페이지 로드 하자마자 뜨게하는 법을 모르겠어서 일단 갖고왔습니다..-->
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 <script>
   Swal.fire({
@@ -38,37 +49,33 @@
           <div class="row">
             <div class="col-12">
               <div class="list-group">
-                <h4 class="large font-weight-bold"><div id="candidatenum">{{school_vote.sh_category1}}</div>
-                      <a href="{% url 'school-pledge'%}" class="float-right"> <!-- 공약 보기 링크 연결 -->
-                        <span class="text" style="color:silver; font-weight:bold">공약보기</span>
-                      </a> <br>
+                <h4 class="large font-weight-bold" id="candidatenum"> {{school_vote.sh_category1}}
                       <a data-toggle="modal" data-target="#exampleModal1" class="float-right"><span class="text-primary">투표하기</span> </a> <!-- 투표 화면 링크 추가-->
-                      </h4>
-                      <hr>
+                </h4>
+                <h5 id="promise_button1" class="text-danger" onclick="view1()">공략보기(클릭)</h5>
+                <div id="promise1" style="display:none;" class="mybackground text-dark">{{school_vote.sh_promise1}}</div>
+                <hr>
 
-                <h4 class="large font-weight-bold"><div id="candidatenum">{{school_vote.sh_category2}}</div>
-                    <a href="{% url 'school-pledge'%}" class="float-right"> <!-- 공약 보기 링크 연결 -->
-                        <span class="text" style="color:silver; font-weight:bold">공약보기</span>
-                      </a> <br>
-                      <a data-toggle="modal" data-target="#exampleModal2" class="float-right"><span class="text-primary">투표하기</span> </a> <!-- 투표 화면 링크 추가-->
-                      </h4>
-                      <hr>
+                <h4 class="large font-weight-bold" id="candidatenum"> {{school_vote.sh_category2}}
+                      <a data-toggle="modal" data-target="#exampleModal1" class="float-right"><span class="text-primary">투표하기</span> </a> <!-- 투표 화면 링크 추가-->
+                </h4>
+                <h5 id="promise_button2" class="text-danger" onclick="view2()">공략보기(클릭)</h5>
+                <div id="promise2" style="display:none;" class="mybackground text-dark">{{school_vote.sh_promise2}}</div>
+                <hr>
 
-                <h4 class="large font-weight-bold"> <div id="candidatenum">{{school_vote.sh_category3}}</div>
-                    <a href="{% url 'school-pledge'%}" class="float-right"> <!-- 공약 보기 링크 연결 -->
-                        <span class="text" style="color:silver; font-weight:bold">공약보기</span>
-                      </a> <br>
-                      <a data-toggle="modal" data-target="#exampleModal3" class="float-right"><span class="text-primary">투표하기</span> </a> <!-- 투표 화면 링크 추가-->
-                      </h4>
-                      <hr>
+                <h4 class="large font-weight-bold" id="candidatenum"> {{school_vote.sh_category3}}
+                      <a data-toggle="modal" data-target="#exampleModal1" class="float-right"><span class="text-primary">투표하기</span> </a> <!-- 투표 화면 링크 추가-->
+                </h4>
+                <h5 id="promise_button3" class="text-danger" onclick="view3()">공략보기(클릭)</h5>
+                <div id="promise3" style="display:none;" class="mybackground text-dark">{{school_vote.sh_promise3}}</div>
+                <hr>
 
-                <h4 class="large font-weight-bold"><div id="candidatenum">{{school_vote.sh_category4}}</div>
-                    <a href="{% url 'school-pledge'%}" class="float-right"> <!-- 공약 보기 링크 연결 -->
-                        <span class="text" style="color:silver; font-weight:bold">공약보기</span>
-                      </a> <br>
-                      <a data-toggle="modal" data-target="#exampleModal4" class="float-right"><span class="text-primary">투표하기</span> </a> <!-- 투표 화면 링크 추가-->
-                      </h4>
-                      <hr>
+                <h4 class="large font-weight-bold" id="candidatenum"> {{school_vote.sh_category4}}
+                      <a data-toggle="modal" data-target="#exampleModal1" class="float-right"><span class="text-primary">투표하기</span> </a> <!-- 투표 화면 링크 추가-->
+                </h4>
+                <h5 id="promise_button4" class="text-danger" onclick="view4()">공략보기(클릭)</h5>
+                <div id="promise4" style="display:none;" class="mybackground text-dark">{{school_vote.sh_promise4}}</div>
+                <hr>
                 
               </div>
               
@@ -215,4 +222,55 @@
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+
+    <script>
+    function view1(){
+      var promise1 = document.getElementById("promise1");
+
+      if(promise1.style.display==="none"){
+        promise1.style.display="inline";
+        document.getElementById("promise_button1").innerHTML="공략보기(닫기)";
+      }else{
+        promise1.style.display="none";
+        document.getElementById("promise_button1").innerHTML="공략보기(클릭)";
+      }
+    }
+
+    function view2(){
+      var promise2 = document.getElementById("promise2");
+
+      if(promise2.style.display==="none"){
+        promise2.style.display="inline";
+        document.getElementById("promise_button2").innerHTML="공략보기(닫기)";
+      }else{
+        promise2.style.display="none";
+        documen2.getElementById("promise_button2").innerHTML="공략보기(클릭)";
+      }
+    }
+
+    function view3(){
+      var promise3 = document.getElementById("promise3");
+
+      if(promise3.style.display==="none"){
+        promise3.style.display="inline";
+        document.getElementById("promise_button3").innerHTML="공략보기(닫기)";
+      }else{
+        promise3.style.display="none";
+        document.getElementById("promise_button3").innerHTML="공략보기(클릭)";
+      }
+    }
+
+    function view4(){
+      var promise4 = document.getElementById("promise4");
+
+      if(promise4.style.display==="none"){
+        promise4.style.display="inline";
+        document.getElementById("promise_button4").innerHTML="공략보기(닫기)";
+      }else{
+        promise4.style.display="none";
+        document.getElementById("promise_button4").innerHTML="공략보기(클릭)";
+      }
+    }
+    </script>
+
 {% endblock content %}
