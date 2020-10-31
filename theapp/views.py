@@ -347,6 +347,10 @@ def college_voting(requests, pk):
 def college_pledge(requests):
     return render(requests, 'college-pledge.html')
 
+def college_result(requests, pk):
+    undergraduate_vote = get_object_or_404(MajorVote, pk=pk)
+    return render(requests, 'college-result.html',{'undergraduate_vote':undergraduate_vote})  
+
 # 학과-투표하기 페이지
 def department_voting(requests, pk):
     dept_vote = get_object_or_404(MajorVote, pk=pk)
