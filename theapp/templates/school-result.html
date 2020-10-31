@@ -1,6 +1,8 @@
 {% extends 'base.html' %}
 {% load static %}
-
+{% block head %}
+<script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+{% endblock head %}
 {% block content %}
 <div id="content-wrapper" class="d-flex flex-column">
     <div id="content">
@@ -27,11 +29,16 @@
                 </div>
                 <!-- Card Body -->
                 <div class="card-body">
-                  <div class="chart-pie pt-4">
+                  {% comment %} <div>{{school_vote.sh_category1}}의 결과 {{school_vote.sh_vt_result1}}표</div>
+                  <div>{{school_vote.sh_category2}}의 결과 {{school_vote.sh_vt_result2}}표</div>
+                  <div>{{school_vote.sh_category3}}의 결과 {{school_vote.sh_vt_result3}}표</div>
+                  <div>{{school_vote.sh_category4}}의 결과 {{school_vote.sh_vt_result4}}표</div> {% endcomment %}
+                  
+                  <canvas id="myChart"></canvas>
+
+                  {% comment %} <div class="chart-pie pt-4">
                     <canvas id="myPieChart"></canvas>
-                  </div>
-                  <hr>
-                  전체 100명 중 55%의 학생이 기호 2번을, 30%학생이 기호 1번을, 15%의 학생이 기호 3번을 투표하셨습니다.
+                  </div> {% endcomment %}
                 </div>
               </div>
             </div>
@@ -59,5 +66,43 @@
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+<script>
+  var ctx = document.getElementById('myChart');
+  var result1 = "{{school_vote.sh_vt_result1}}";
+  var result2 = "{{school_vote.sh_vt_result2}}";
+  var result3 = "{{school_vote.sh_vt_result3}}";
+  var result4 = "{{school_vote.sh_vt_result4}}";
 
+  var category1 = "{{school_vote.sh_category1}}";
+  var category2 = "{{school_vote.sh_category2}}";
+  var category3 = "{{school_vote.sh_category3}}";
+  var category4 = "{{school_vote.sh_category4}}";
+
+  var data1 = parseInt(result1);
+  var data2 = parseInt(result2);
+  var data3 = parseInt(result3);
+  var data4 = parseInt(result4);
+
+  var chart = new Chart(ctx, {
+      // 차트 종류 선택
+      type: 'doughnut',
+
+      // 차트를 그릴 데이터
+      data: {
+          labels: [category1,category2,category3,category4],
+          datasets: [{
+              label: 'result data',
+              backgroundColor: ['#80817C','#C6C5B9','#62929E','#546A7B'],
+              data: [data1, data2, data3, data4]
+          }]
+      },
+
+      // 옵션
+      options: {
+        legend: {
+          display: false
+        },
+      }
+  });
+</script>
 {% endblock content %}
