@@ -32,13 +32,13 @@
                 <div>
                   <h1 class="h3 mb-2 text-gray-700">학생정보</h1>
                   <br>
-                  <h1 class="h5 mb-2 text-gray-600">단과대 / 학부 : 공과대학</h1>
+                  <h1 class="h5 mb-2 text-gray-600">단과대 / 학부 : {{ user.profile.college }}</h1>
                   <p></p>
-                  <h1 class="h5 mb-2 text-gray-600">학과 : 컴퓨터공학과</h1>
+                  <h1 class="h5 mb-2 text-gray-600">학과 : {{ user.profile.major }}</h1>
                   <p></p>
-                  <h1 class="h5 mb-2 text-gray-600">학번 : 2018xxxx</h1>
+                  <h1 class="h5 mb-2 text-gray-600">학번 : {{ user.profile.student_id }}</h1>
                   <p></p>
-                  <h1 class="h5 mb-2 text-gray-600">이름 : {{ user.username }}</h1>
+                  <h1 class="h5 mb-2 text-gray-600">이름 : {{ user.username }} </h1>
                 </div>
               </div>
 
@@ -46,7 +46,7 @@
               <div class="card shadow mb-4">
                 <div class="card-header py-3">
                   <div style="float:left" >
-                  <h6 class="m-0 font-weight-bold text-primary" style="padding-top:5px">참여 가능한 투표
+                  <h6 class="m-0 font-weight-bold text-primary" style="padding-top:5px">진행중인 투표
                   </h6>
                   </div>
                   <a href="{% url 'participate'%}">
@@ -56,16 +56,16 @@
                     </div>
                   </a>
                 </div>
-                <div class="card-body">
+                {% comment %} <div class="card-body">
                    <div>- &nbsp; 20대 학생회 투표</div>
-                </div>
+                </div> {% endcomment %}
               </div>
 
               <!-- Bar Chart -->
               <div class="card shadow mb-4">
                 <div class="card-header py-3">
                   <div style="float:left" >
-                  <h6 class="m-0 font-weight-bold text-primary" style="padding-top:5px">참여 완료된 투표
+                  <h6 class="m-0 font-weight-bold text-primary" style="padding-top:5px">완료된 투표
                   </h6>
                   </div>
                   <a href="{% url 'completion-participate'%}">
@@ -74,10 +74,10 @@
                     </div>
                   </a>
                 </div>
-                <div class="card-body">
+                {% comment %} <div class="card-body">
                    <div>- &nbsp; 과대 투표</div>
                    <div>- &nbsp; 리스트 항목</div>
-                </div>
+                </div> {% endcomment %}
               </div>
 
             </div>

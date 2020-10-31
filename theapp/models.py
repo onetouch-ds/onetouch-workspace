@@ -10,6 +10,17 @@ from datetime import datetime
 
 
 # Create your models here.
+# Profile 추가 (회원가입시 추가 기입 사항)
+from django.contrib.auth.models import User
+
+class Profile(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    college = models.CharField(max_length=50, blank=True)
+    major = models.CharField(max_length=50, blank=True)
+    student_id = models.TextField(max_length=50, blank=True)
+
+
+
 
 class AuthGroup(models.Model):
     name = models.CharField(unique=True, max_length=150)
@@ -137,6 +148,7 @@ class MajorVote(models.Model):
     mj_vt_pk = models.IntegerField(primary_key=True)
     mj_vt_name = models.CharField(max_length=45)
     mj_vt_dday = models.DateField()
+    date = datetime.today()
     mj_category1 = models.CharField(max_length=45, blank=True, null=True)
     mj_category2 = models.CharField(max_length=45, blank=True, null=True)
     mj_category3 = models.CharField(max_length=45, blank=True, null=True)
@@ -255,6 +267,7 @@ class UndergraduateVote(models.Model):
     ud_vt_pk = models.IntegerField(primary_key=True)
     ud_vt_name = models.CharField(max_length=45)
     ud_vt_dday = models.DateField()
+    date = datetime.today()
     ud_category1 = models.CharField(max_length=45, blank=True, null=True)
     ud_category2 = models.CharField(max_length=45, blank=True, null=True)
     ud_category3 = models.CharField(max_length=45, blank=True, null=True)
