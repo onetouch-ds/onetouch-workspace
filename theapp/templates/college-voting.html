@@ -17,37 +17,32 @@
             <div class="col-12">
               <div class="list-group">
                 <h4 class="large font-weight-bold"><div id="candidatenum">{{undergraduate_vote.ud_category1}}</div>
-                      <a href="{% url 'college-pledge'%}" class="float-right"> <!-- 공약 보기 링크 연결 -->
-                        <span class="text" style="color:silver; font-weight:bold">공약보기</span>
-                      </a> <br>
                       <a data-toggle="modal" data-target="#exampleModal1" class="float-right"><span class="text-primary">투표하기</span> </a> <!-- 투표 화면 링크 추가-->
                       </h4>
+                <h5 id="promise_button1" class="text-danger" onclick="view1()">공약보기(클릭)</h5>
+                <div id="promise1" style="display:none;" class="mybackground text-dark">{{undergraduate_vote.ud_promise1}}</div>
                       <hr>
                 <h4 class="large font-weight-bold"><div id="candidatenum">{{undergraduate_vote.ud_category2}}</div>
-                    <a href="{% url 'college-pledge'%}" class="float-right"> <!-- 공약 보기 링크 연결 -->
-                        <span class="text" style="color:silver; font-weight:bold">공약보기</span>
-                      </a> <br>
                       <a data-toggle="modal" data-target="#exampleModal2" class="float-right"><span class="text-primary">투표하기</span> </a> <!-- 투표 화면 링크 추가-->
                       </h4>
+                <h5 id="promise_button1" class="text-danger" onclick="view1()">공약보기(클릭)</h5>
+                <div id="promise1" style="display:none;" class="mybackground text-dark">{{undergraduate_vote.ud_promise2}}</div>
                       <hr>
                 <h4 class="large font-weight-bold"><div id="candidatenum">{{undergraduate_vote.ud_category3}}</div>
-                    <a href="{% url 'college-pledge'%}" class="float-right"> <!-- 공약 보기 링크 연결 -->
-                        <span class="text" style="color:silver; font-weight:bold">공약보기</span>
-                      </a> <br>
                       <a data-toggle="modal" data-target="#exampleModal3" class="float-right"><span class="text-primary">투표하기</span> </a> <!-- 투표 화면 링크 추가-->
                       </h4>
+                      <h5 id="promise_button1" class="text-danger" onclick="view1()">공약보기(클릭)</h5>
+                <div id="promise1" style="display:none;" class="mybackground text-dark">{{undergraduate_vote.ud_promise3}}</div>
+                <hr>
                       <hr>
                 <h4 class="large font-weight-bold"><div id="candidatenum">{{undergraduate_vote.ud_category4}}</div>
-                    <a href="{% url 'college-pledge'%}" class="float-right"> <!-- 공약 보기 링크 연결 -->
-                        <span class="text" style="color:silver; font-weight:bold">공약보기</span>
-                      </a> <br>
+
                       <a data-toggle="modal" data-target="#exampleModal4" class="float-right"><span class="text-primary">투표하기</span> </a> <!-- 투표 화면 링크 추가-->
                       </h4>
+                 <h5 id="promise_button1" class="text-danger" onclick="view1()">공약보기(클릭)</h5>
+                <div id="promise1" style="display:none;" class="mybackground text-dark">{{undergraduate_vote.ud_promise5}}</div>
                       <hr>
-                <h4 class="large font-weight-bold"><div id="candidatenum">{{undergraduate_vote.ud_category5}}</div>
-                      <a data-toggle="modal" data-target="#exampleModal5" class="float-right"><span class="text-primary">투표하기</span> </a> <!-- 투표 화면 링크 추가-->
-                      </h4>
-                      <hr>
+
                 
               </div>
               
