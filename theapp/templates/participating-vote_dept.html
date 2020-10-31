@@ -14,7 +14,7 @@
          <br><br><br>
           <!-- Page Heading -->
           <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">참여 가능한 투표</h1>
+            <h1 class="h3 mb-0 text-gray-800">진행중인 투표</h1>
           </div>
 
           <!-- Content Row -->
@@ -47,34 +47,23 @@
 
                   </div>
                   </div>
-
-                   <!-- Content Row 투표 목록-->
-          <div class="row">
-
-          <div class="card-body">
-                  <h4 class="large font-weight-bold">21대 학생회 투표
-                  <a data-toggle="modal" data-target="#exampleModalScrollable" class="float-right"><span class="text-primary">투표하기</span> </a> <!-- 투표 화면 링크 추가-->
+           {% for major_vote in major_vote.all %}
+            {% if major_vote.mj_vt_dday|date:"Y-m-d" >= major_vote.date|date:"Y-m-d"%}
+              <!-- Content Row 투표 목록-->
+              <div class="row">
+                <div class="card-body">
+                  <h4 class="large font-weight-bold">{{major_vote.mj_vt_name }}
+                    <a href="{%url 'college-voting' major_vote.mj_vt_pk %}"  class="float-right" >
+                      <span class="text-primary">투표하기</span> </a> <!-- 투표 화면 링크 추가-->
                   </h4>
-                  <h5 class="large font-weight-bold">D-1</h5>
-                  <div class="progress mb-4">
-                    <div class="progress-bar bg-success" role="progressbar" style="width: 20%" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" alt="20%"></div>
-            </div>
-            
-            <br>
-
-            <div class="card-body2">
-                  <h4 class="large font-weight-bold">총장 투표
-                           <!-- Button trigger modal -->
-                  <a data-toggle="modal" data-target="#exampleModalScrollable" class="float-right"><span class="text-primary">투표하기</span> </a> <!-- 투표 화면 링크 추가-->
-                  </h4>
-                  <h5 class="large font-weight-bold">D-10</h5>
-                  <div class="progress mb-4">
-                    <div class="progress-bar bg-success" role="progressbar" style="width: 20%" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" alt="20%"></div>
-            </div>
-
-            
-
-            <br>       
+                  <h5 class="large font-weight-bold">{{major_vote.mj_vt_dday }}</h5>
+                </div>
+              </div>          
+              <br>
+              {% endif %}
+          {%endfor%}   
+          
+     
 
             <nav aria-label="학교투표">
             <ul class="pagination">

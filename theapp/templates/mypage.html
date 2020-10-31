@@ -46,7 +46,7 @@
               <div class="card shadow mb-4">
                 <div class="card-header py-3">
                   <div style="float:left" >
-                  <h6 class="m-0 font-weight-bold text-primary" style="padding-top:5px">참여 가능한 투표
+                  <h6 class="m-0 font-weight-bold text-primary" style="padding-top:5px">진행중인 투표
                   </h6>
                   </div>
                   <a href="{% url 'participate'%}">
@@ -56,16 +56,16 @@
                     </div>
                   </a>
                 </div>
-                <div class="card-body">
+                {% comment %} <div class="card-body">
                    <div>- &nbsp; 20대 학생회 투표</div>
-                </div>
+                </div> {% endcomment %}
               </div>
 
               <!-- Bar Chart -->
               <div class="card shadow mb-4">
                 <div class="card-header py-3">
                   <div style="float:left" >
-                  <h6 class="m-0 font-weight-bold text-primary" style="padding-top:5px">참여 완료된 투표
+                  <h6 class="m-0 font-weight-bold text-primary" style="padding-top:5px">완료된 투표
                   </h6>
                   </div>
                   <a href="{% url 'completion-participate'%}">
@@ -74,10 +74,10 @@
                     </div>
                   </a>
                 </div>
-                <div class="card-body">
+                {% comment %} <div class="card-body">
                    <div>- &nbsp; 과대 투표</div>
                    <div>- &nbsp; 리스트 항목</div>
-                </div>
+                </div> {% endcomment %}
               </div>
 
             </div>

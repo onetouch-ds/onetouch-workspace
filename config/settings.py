@@ -29,7 +29,7 @@ SECRET_KEY = 'tp)v$pwn2xk2##ugsap(*z-gdkm*ri57wx5^p(tnr!59nqosj*'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [".ap-northeast-2.compute.amazonaws.com"]
 
 
 # Application definition
@@ -131,7 +131,11 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles/')
+
 STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
+
+
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
