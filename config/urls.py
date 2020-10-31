@@ -57,6 +57,7 @@ urlpatterns = [
     path('make-vote/', views.make_vote, name='make-vote'),
     path('school-voting/<int:pk>/', views.school_voting, name='school-voting'),
     path('school-result/<int:pk>/', views.school_result, name='school-result'),
+    path('college-result/<int:pk>/', views.college_result, name='college-result'),
     path('department-result/<int:pk>/', views.department_result, name='department-result'),
     path('school-pledge/', views.school_pledge, name='school-pledge'),
     path('college-voting/<int:pk>/', views.college_voting, name='college-voting'),
